@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 export function Page(props) {
   const [count, setcount] = useState(0);
 
-  
+
 
 
   return (
@@ -15,7 +15,7 @@ export function Page(props) {
           <Categore
             categoryName={category.categoryName}
             items={category.items}
-            onClick={}
+          // onClick={}
           />
         ))}
       </div>
