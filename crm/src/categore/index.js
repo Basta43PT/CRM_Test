@@ -1,0 +1,1 @@
+export { Categore } from "./categore";
