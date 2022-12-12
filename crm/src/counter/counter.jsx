@@ -17,9 +17,28 @@ export function Counter(props) {
 
   return (
     <div>
-      <button onClick={updateAmountAdd}>+</button>
-      {count}
-      <button onClick={updateAmountSub}>-</button>
+      <button onClick={() => props.onClick(props.id, "+")}>+</button>
+      {props.amount}
+      <button onClick={() => props.onClick(props.id, "-")}>-</button>
     </div>
   );
+}
+
+// onClick={(event) => {
+//   console.log({ event });
+//   return props.onClick(event.target.textContent);
+
+{
+  /* <form>
+        <input></input>
+        <button
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            console.log("button click");
+          }}
+        >
+          sd
+        </button>
+      </form> */
 }

@@ -9,10 +9,11 @@ export function Categore(props) {
       <div className={styles.itemList}>
         {props.items.map((item) => (
           <Item
+            id={item.id}
             name={item.name}
             price={item.price}
-            onClick={item.onClick}
-            id={item.id}
+            count={item.count}
+            onClick={props.onClick}
           />
         ))}
       </div>
