@@ -5,21 +5,33 @@ export function Counter(props) {
 
   const updateAmountAdd = () => {
     setCount(count + 1);
-    props.amount = count;
   };
 
   const updateAmountSub = () => {
     if (count > 0) {
       setCount(count - 1);
-      props.amount = count;
     }
   };
 
   return (
     <div>
-      <button onClick={() => props.onClick(props.id, "+")}>+</button>
-      {props.amount}
-      <button onClick={() => props.onClick(props.id, "-")}>-</button>
+      <button
+        onClick={() => {
+          updateAmountAdd();
+          props.onClick(props.id, props.name, props.price, "+");
+        }}
+      >
+        +
+      </button>
+      {count}
+      <button
+        onClick={() => {
+          updateAmountSub();
+          props.onClick(props.id, props.name, props.price, "-");
+        }}
+      >
+        -
+      </button>
     </div>
   );
 }

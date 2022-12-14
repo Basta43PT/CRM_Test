@@ -8,7 +8,12 @@ export function Item(props) {
       <div>{props.name}</div>
       <div>{props.price}</div>
       <div className={styles.counter}>
-        <Counter onClick={props.onClick} amount={props.count} id={props.id} />
+        <Counter
+          onClick={props.onClick}
+          name={props.name}
+          price={props.price}
+          id={props.id}
+        />
       </div>
     </div>
   );
