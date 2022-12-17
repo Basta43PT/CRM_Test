@@ -1,8 +1,8 @@
-/* .page {
+.page {
     height: 100vh;
     display: flex;
     justify-content: space-between;
 }
-.categoryList {
+.categoreList {
     flex-grow: 1;
-} */
+}
