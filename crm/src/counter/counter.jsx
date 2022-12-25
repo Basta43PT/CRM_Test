@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "./counter.module.css";
 
 export function Counter(props) {
   const [count, setCount] = useState(0);
@@ -17,6 +18,7 @@ export function Counter(props) {
   return (
     <div>
       <button
+        className={styles.button}
         onClick={() => {
           updateAmountAdd();
           props.onClick(props.id, props.name, props.price, "+");
@@ -26,6 +28,7 @@ export function Counter(props) {
       </button>
       {count}
       <button
+        className={styles.button}
         onClick={() => {
           updateAmountSub();
           props.onClick(props.id, props.name, props.price, "-");

@@ -5,8 +5,8 @@ import { Counter } from "../counter";
 export function Item(props) {
   return (
     <div className={styles.item}>
-      <div>{props.name}</div>
-      <div>{props.price}</div>
+      <h5>{props.name}</h5>
+      <div>₪ {props.price}</div>
       <div className={styles.counter}>
         <Counter
           onClick={props.onClick}

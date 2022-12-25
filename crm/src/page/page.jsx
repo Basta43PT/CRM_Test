@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Categore } from "../categore";
 import { ShoppingCart } from "../shoppingCart";
 import styles from "./page.module.css";
@@ -15,7 +15,7 @@ export function Page(props) {
         //In case perv empty
         if (action == "+")
           prev = [{ id: idCart, name: nameCart, price: priceCart, count: 1 }];
-        return prev;
+        // return prev
       } else {
         if (productExist(prev, idCart)) {
           console.log("case 2 - true");
@@ -26,7 +26,7 @@ export function Page(props) {
               if (action == "-")
                 if (prev[i].count == 1) prev.splice(i, 1);
                 else prev[i].count--;
-              return prev;
+              // return prev;
             }
         } else {
           //IN case prev hasn't the specipic item in the array
@@ -38,16 +38,16 @@ export function Page(props) {
               price: priceCart,
               count: 1,
             });
-          return prev;
+          // return prev;
         }
-        // console.log(prev);
-        return prev;
       }
+      return prev;
     });
   }
   function sendShoppingCart(state) {
     return 0;
   }
+
   return (
     <div className={styles.page}>
       <div className={styles.categoreList}>

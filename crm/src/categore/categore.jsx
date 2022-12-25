@@ -4,7 +4,7 @@ import { Item } from "../item";
 
 export function Categore(props) {
   return (
-    <div className={styles.categore}>
+    <div className={styles.category}>
       <h2>{props.categoryName}</h2>
       <div className={styles.itemList}>
         {props.items.map((item) => (
