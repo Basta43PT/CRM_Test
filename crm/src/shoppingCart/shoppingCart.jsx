@@ -3,17 +3,16 @@ import styles from "./shoppingCart.module.css";
 import { ShoppingCardInline } from "../shoppingCardInline";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export function ShoppingCart(props) {
+export function ShoppingCart({ shopCart, onClick }) {
   let innerCart;
 
-  if (props.shopCart.length == 0)
-    innerCart = [{ name: "", price: "", count: "" }];
-  else innerCart = props.shopCart;
-  console.log(innerCart, "innerCart");
+  if (shopCart.length == 0) innerCart = [{ name: "", price: "", count: "" }];
+  else innerCart = shopCart;
+  // console.log(innerCart, "innerCart");
 
   return (
     <div className={styles.ShoppingCart}>
-      <h2>Shopping Cart</h2>
+      <h1 className={styles.title}>Shopping Cart</h1>
       <div>
         <table className="table table-striped">
           <thead>
@@ -35,8 +34,9 @@ export function ShoppingCart(props) {
 
         <div className="container">
           <button
+            className={styles.button}
             onClick={() => {
-              props.onClick(true);
+              onClick(true);
             }}
           >
             Send

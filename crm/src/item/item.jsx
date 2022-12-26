@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import styles from "./item.module.css";
 import { Counter } from "../counter";
 
-export function Item(props) {
+export function Item({ addToCart, subFromCart, name, price, id }) {
   return (
     <div className={styles.item}>
-      <h5>{props.name}</h5>
-      <div>₪ {props.price}</div>
+      <h5>{name}</h5>
+      <div>₪ {price}</div>
       <div className={styles.counter}>
         <Counter
-          onClick={props.onClick}
-          name={props.name}
-          price={props.price}
-          id={props.id}
+          // onClick={onClick}
+          addToCart={addToCart}
+          subFromCart={subFromCart}
+          name={name}
+          price={price}
+          id={id}
         />
       </div>
     </div>

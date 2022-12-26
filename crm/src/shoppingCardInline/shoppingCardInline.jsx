@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styles from "./shoppingCardInline.module.css";
 
-export function ShoppingCardInline(props) {
-  let sum = props.price * props.count;
+export function ShoppingCardInline({ price, count, name }) {
+  let sum = price * count;
   return (
     <tr>
-      <td scope="row"> {props.name} </td>
-      <td> {props.price} </td>
-      <td> {props.count} </td>
+      <td scope="row"> {name} </td>
+      <td> {price} </td>
+      <td> {count} </td>
       <td>{sum} </td>
     </tr>
   );

@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import styles from "./categore.module.css";
 import { Item } from "../item";
 
-export function Categore(props) {
+export function Categore({ categoryName, items, addToCart, subFromCart }) {
   return (
     <div className={styles.category}>
-      <h2>{props.categoryName}</h2>
+      <h1>{categoryName}</h1>
       <div className={styles.itemList}>
-        {props.items.map((item) => (
+        {items.map((item) => (
           <Item
             id={item.id}
             name={item.name}
             price={item.price}
             count={item.count}
-            onClick={props.onClick}
+            // onClick={onClick}
+            addToCart={addToCart}
+            subFromCart={subFromCart}
           />
         ))}
       </div>

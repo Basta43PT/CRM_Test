@@ -4,64 +4,92 @@ import { ShoppingCart } from "../shoppingCart";
 import styles from "./page.module.css";
 import { data } from "../content/content";
 
+// function useCart() {
+//   const [cart, setCart] = useState([]);
+// }
+
 export function Page(props) {
   const [cart, setCart] = useState([]);
 
-  function updateCount(idCart, nameCart, priceCart, action) {
-    setCart((prev) => {
-      const dic = {};
-      if (prev.length == 0) {
-        console.log("case 1 - intial");
-        //In case perv empty
-        if (action == "+")
-          prev = [{ id: idCart, name: nameCart, price: priceCart, count: 1 }];
-        // return prev
-      } else {
-        if (productExist(prev, idCart)) {
-          console.log("case 2 - true");
-          //IN case prev has the specipic item in the array
-          for (let i = 0; i < prev.length; i++)
-            if (prev[i].id == idCart) {
-              if (action == "+") prev[i].count++;
-              if (action == "-")
-                if (prev[i].count == 1) prev.splice(i, 1);
-                else prev[i].count--;
-              // return prev;
-            }
-        } else {
-          //IN case prev hasn't the specipic item in the array
-          console.log("case 3 - false");
-          if (action == "+")
-            prev.push({
-              id: idCart,
-              name: nameCart,
-              price: priceCart,
-              count: 1,
-            });
-          // return prev;
-        }
+  function addItem(idCart, nameCart, priceCart) {
+    const index = cart.findIndex((item) => item.id == idCart);
+    //IN case cart hasn't the specipic item in the array
+    if (index == -1) {
+      console.log("case 1 - new item added");
+      setCart([
+        ...cart,
+        { id: idCart, name: nameCart, price: priceCart, count: 1 },
+      ]);
+      return;
+    }
+    //IN case cart has the specipic item in the array
+    console.log("case 2 - exist item added");
+    const currentItem = cart[index];
+    const next = cart.map((item) => {
+      if (item.id == currentItem.id) {
+        return {
+          ...item,
+          count: (item.count += 1),
+        };
       }
-      return prev;
+      return item;
     });
+    setCart(next);
   }
+
+  function substractItem(idCart, nameCart, priceCart) {
+    const index = cart.findIndex((item) => item.id == idCart);
+    //IN case cart hasn't the specipic item in the array
+    if (index == -1) console.log("case 1 - no item to drop");
+    else {
+      if (cart[index].count > 1) {
+        console.log("case 2 - sub 1 from item.count");
+        const currentItem = cart[index];
+        const next = cart.map((item) => {
+          if (item.id === currentItem.id) {
+            return {
+              ...currentItem,
+              count: (currentItem.count -= 1),
+            };
+          }
+          return item;
+        });
+        setCart(next);
+        return;
+      } else {
+        console.log("case 2 - remove item from cart");
+        // const next = cart;
+        // next.splice(index, 1);
+        // next = [...next];
+        const currentItem = cart[index];
+        const next = cart.filter((item) => item.id != currentItem.id);
+        setCart(next);
+      }
+    }
+  }
+
   function sendShoppingCart(state) {
     return 0;
   }
 
   return (
-    <div className={styles.page}>
-      <div className={styles.categoreList}>
-        {data.map((category) => (
-          <Categore
-            categoryName={category.categoryName}
-            items={category.items}
-            onClick={updateCount}
-          />
-        ))}
-      </div>
-      <div className={styles.ShoppingCart}>
-        {console.log(cart, "page:cart")}
-        <ShoppingCart shopCart={cart} onClick={sendShoppingCart} />
+    <div>
+      <div className={styles.page}>
+        <div className={styles.categoreList}>
+          {data.map((category) => (
+            <Categore
+              categoryName={category.categoryName}
+              items={category.items}
+              addToCart={addItem}
+              subFromCart={substractItem}
+            />
+          ))}
+        </div>
+
+        <div className={styles.ShoppingCart}>
+          {/* {console.log(cart, "page:cart")} */}
+          <ShoppingCart shopCart={cart} onClick={sendShoppingCart} />
+        </div>
       </div>
     </div>
   );
