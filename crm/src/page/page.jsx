@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Categore } from "../categore";
+import { BrowserRouter, Routes, Link } from "react-router-dom";
+import { Category } from "../category";
 import { ShoppingCart } from "../shoppingCart";
 import styles from "./page.module.css";
-import { data } from "../content/content";
+// import { data } from "../content/content";
 
 // function useCart() {
 //   const [cart, setCart] = useState([]);
 // }
 
-export function Page(props) {
+export function Page({ data }) {
   const [cart, setCart] = useState([]);
+
+  const requestData = {
+    method: "GET",
+  };
+  fetch("http://localhost:3000/data");
 
   function addItem(idCart, nameCart, priceCart) {
     const index = cart.findIndex((item) => item.id == idCart);
@@ -69,6 +75,28 @@ export function Page(props) {
   }
 
   function sendShoppingCart(state) {
+    console.log(cart, "cart");
+    console.log(data, "data");
+    console.log(
+      data.map((e) => e.items.find((e0) => e0.id == 1)),
+      "find"
+    );
+    const tempId = cart[0].id;
+    const tempCount = cart[0].count;
+    const amount = data.map((e) => e.items.find((e0) => e0.id == tempId))[0]
+      .amount;
+    const newAmount = amount - tempCount;
+    console.log(tempId, tempCount, amount, newAmount, "details");
+
+    // const requestOptions = {
+    //   method: "PUT",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ amount: newAmount }),
+    // };
+    // fetch("http://localhost:3000/data", { requestOptions })
+    //   .then((response) => response.json())
+    //   .then((data) => this.setState(data[0]));
+
     return 0;
   }
 
@@ -77,7 +105,7 @@ export function Page(props) {
       <div className={styles.page}>
         <div className={styles.categoreList}>
           {data.map((category) => (
-            <Categore
+            <Category
               categoryName={category.categoryName}
               items={category.items}
               addToCart={addItem}
@@ -87,17 +115,9 @@ export function Page(props) {
         </div>
 
         <div className={styles.ShoppingCart}>
-          {/* {console.log(cart, "page:cart")} */}
           <ShoppingCart shopCart={cart} onClick={sendShoppingCart} />
         </div>
       </div>
     </div>
   );
-}
-
-function productExist(prev, id) {
-  for (let i = 0; i < prev.length; i++) {
-    if (prev[i].id === id) return true;
-  }
-  return false;
 }

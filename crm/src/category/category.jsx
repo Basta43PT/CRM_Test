@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styles from "./categore.module.css";
+import styles from "./category.module.css";
 import { Item } from "../item";
 
-export function Categore({ categoryName, items, addToCart, subFromCart }) {
+export function Category({ categoryName, items, addToCart, subFromCart }) {
   return (
     <div className={styles.category}>
       <h1>{categoryName}</h1>
