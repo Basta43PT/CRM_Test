@@ -1,0 +1,1 @@
+export { ShoppingCardInline } from "./shoppingCardInline";

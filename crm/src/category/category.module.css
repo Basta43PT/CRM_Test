@@ -1,0 +1,10 @@
+.category {
+    border: 1px solid gray;
+    margin: 10px;
+}
+.itemList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(197px,1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
