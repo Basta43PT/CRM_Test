@@ -10,12 +10,9 @@ import styles from "./page.module.css";
 // }
 
 export function Page({ data }) {
+  const newData = manageData(data);
   const [cart, setCart] = useState([]);
-
-  const requestData = {
-    method: "GET",
-  };
-  fetch("http://localhost:3000/data");
+  // const [count, setCount] = useState([]);
 
   function addItem(idCart, nameCart, priceCart) {
     const index = cart.findIndex((item) => item.id == idCart);
@@ -74,37 +71,35 @@ export function Page({ data }) {
     }
   }
 
-  function sendShoppingCart(state) {
+  function sendShoppingCart(state, type) {
     console.log(cart, "cart");
-    console.log(data, "data");
-    console.log(
-      data.map((e) => e.items.find((e0) => e0.id == 1)),
-      "find"
-    );
-    const tempId = cart[0].id;
-    const tempCount = cart[0].count;
-    const amount = data.map((e) => e.items.find((e0) => e0.id == tempId))[0]
-      .amount;
-    const newAmount = amount - tempCount;
-    console.log(tempId, tempCount, amount, newAmount, "details");
+    if (cart.length > 0) {
+      for (let i = 0; i < cart.length; i++) {
+        const id = cart[i].id;
+        if (data[id].categoryName != "Chasers") {
+          const newAmount = data[id].amount - cart[i].count;
+          let updateItem = data[id];
+          updateItem.amount = newAmount;
 
-    // const requestOptions = {
-    //   method: "PUT",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ amount: newAmount }),
-    // };
-    // fetch("http://localhost:3000/data", { requestOptions })
-    //   .then((response) => response.json())
-    //   .then((data) => this.setState(data[0]));
-
-    return 0;
+          try {
+            fetch(`http://localhost:3000/data/${id}`, {
+              method: "put",
+              headers: { "Content-type": "application/json" },
+              body: JSON.stringify(updateItem),
+            });
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      }
+      setCart([]);
+    }
   }
-
   return (
     <div>
       <div className={styles.page}>
         <div className={styles.categoreList}>
-          {data.map((category) => (
+          {newData.map((category) => (
             <Category
               categoryName={category.categoryName}
               items={category.items}
@@ -120,4 +115,43 @@ export function Page({ data }) {
       </div>
     </div>
   );
+}
+
+// change the data from the dataBase to fit the rest of the code
+function manageData(data) {
+  let newData = [];
+  let count = 1;
+  data.map((item) => {
+    const index = newData.findIndex(
+      (newItem) => newItem.categoryName == item.categoryName
+    );
+    //IN case newItem has the category
+    if (index != -1) {
+      newData[index]["items"].push({
+        id: item.id,
+        name: item.name,
+        img: item.img,
+        price: item.price,
+        amount: item.amount,
+      });
+    }
+    //in case new categore
+    else {
+      newData.push({
+        categoryName: item.categoryName,
+        items: [
+          {
+            id: item.id,
+            name: item.name,
+            img: item.img,
+            price: item.price,
+            amount: item.amount,
+          },
+        ],
+      });
+      count++;
+    }
+  });
+  console.log(newData, "newData");
+  return newData;
 }

@@ -1,6 +1,7 @@
 .category {
     border: 1px solid gray;
     margin: 10px;
+    text-align: center;
 }
 .itemList {
     display: grid;

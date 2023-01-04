@@ -11,38 +11,48 @@ export function ShoppingCart({ shopCart, onClick }) {
   // console.log(innerCart, "innerCart");
 
   return (
-    <div className={styles.ShoppingCart}>
-      <h1 className={styles.title}>Shopping Cart</h1>
-      <div>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Sum</th>
-            </tr>
-          </thead>
-          {innerCart.map((cartItem) => (
-            <ShoppingCardInline
-              name={cartItem.name}
-              price={cartItem.price}
-              count={cartItem.count}
-            />
-          ))}
-        </table>
+    <div>
+      <div className={styles.ShoppingCart}>
+        <h1 className={styles.title}>Shopping Cart</h1>
+        <div>
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Sum</th>
+              </tr>
+            </thead>
+            {innerCart.map((cartItem) => (
+              <ShoppingCardInline
+                name={cartItem.name}
+                price={cartItem.price}
+                count={cartItem.count}
+              />
+            ))}
+          </table>
 
-        <div className="container">
-          <button
-            className={styles.button}
-            onClick={() => {
-              onClick(true);
-            }}
-          >
-            Send
-          </button>
+          <div className="container">
+            <button
+              className={styles.button}
+              onClick={() => {
+                onClick(true, "order");
+              }}
+            >
+              Order
+            </button>
+          </div>
         </div>
       </div>
+      <button
+        className={styles.employeeButto}
+        onClick={() => {
+          onClick(true, "employee");
+        }}
+      >
+        Employee Meal
+      </button>
     </div>
   );
 }
