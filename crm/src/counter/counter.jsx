@@ -1,27 +1,15 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./counter.module.css";
+import { useEffect } from "react";
 
-export function Counter({ addToCart, subFromCart, id, name, price }) {
-  const [count, setCount] = useState(0);
-
-  const updateAmountAdd = () => {
-    setCount(count + 1);
-  };
-
-  const updateAmountSub = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
-
+export function Counter({ add, subFromCart, count }) {
   return (
     <div>
       <button
         className={styles.button}
         onClick={() => {
-          updateAmountAdd();
-          addToCart(id, name, price);
+          add();
         }}
       >
         +
@@ -30,8 +18,7 @@ export function Counter({ addToCart, subFromCart, id, name, price }) {
       <button
         className={styles.button}
         onClick={() => {
-          updateAmountSub();
-          subFromCart(id, name, price);
+          subFromCart();
         }}
       >
         –

@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import styles from "./shoppingCart.module.css";
 import { ShoppingCardInline } from "../shoppingCardInline";
+import { useCart } from "../useCart.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export function ShoppingCart({ shopCart, onClick }) {
+export function ShoppingCart({ onClick }) {
   let innerCart;
 
-  if (shopCart.length == 0) innerCart = [{ name: "", price: "", count: "" }];
-  else innerCart = shopCart;
-  // console.log(innerCart, "innerCart");
+  // if (shopCart.length == 0) innerCart = [{ name: "", price: "", count: "" }];
+  // else innerCart = shopCart;
+
+  const { add, sub, reset, cart } = useCart();
+  // console.log(cart, "shoppingCart: cart");
 
   return (
     <div>
@@ -24,7 +27,7 @@ export function ShoppingCart({ shopCart, onClick }) {
                 <th scope="col">Sum</th>
               </tr>
             </thead>
-            {innerCart.map((cartItem) => (
+            {cart.map((cartItem) => (
               <ShoppingCardInline
                 name={cartItem.name}
                 price={cartItem.price}
@@ -37,7 +40,7 @@ export function ShoppingCart({ shopCart, onClick }) {
             <button
               className={styles.button}
               onClick={() => {
-                onClick(true, "order");
+                reset();
               }}
             >
               Order
@@ -48,7 +51,7 @@ export function ShoppingCart({ shopCart, onClick }) {
       <button
         className={styles.employeeButto}
         onClick={() => {
-          onClick(true, "employee");
+          reset();
         }}
       >
         Employee Meal
