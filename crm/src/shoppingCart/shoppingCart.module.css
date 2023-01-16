@@ -6,7 +6,21 @@
     margin:10px;
 }
 .button{
-    font-size: 20px;
-    width: 58px;
+    font-size: 25px;
+    width: 90px;
+    margin-left: 30%;
+    background-color: #adff2f;
+    margin-bottom: 10px;
+    border-radius: 8px;
 }
-
+.button:active {
+    background-color: #7bff2f;}
+.employeeButto{
+    width: 90px;
+    margin-left: 33%;
+    background-color: orange;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.employeeButto:active{
+    background-color: rgb(255, 94, 0);}
