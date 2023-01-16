@@ -4,15 +4,7 @@ import { ShoppingCardInline } from "../shoppingCardInline";
 import { useCart } from "../useCart.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export function ShoppingCart({ onClick }) {
-  let innerCart;
-
-  // if (shopCart.length == 0) innerCart = [{ name: "", price: "", count: "" }];
-  // else innerCart = shopCart;
-
-  const { add, sub, reset, cart } = useCart();
-  // console.log(cart, "shoppingCart: cart");
-
+export function ShoppingCart({ onClick, cart }) {
   return (
     <div>
       <div className={styles.ShoppingCart}>
@@ -40,7 +32,7 @@ export function ShoppingCart({ onClick }) {
             <button
               className={styles.button}
               onClick={() => {
-                reset();
+                onClick(true, "order");
               }}
             >
               Order
@@ -51,7 +43,7 @@ export function ShoppingCart({ onClick }) {
       <button
         className={styles.employeeButto}
         onClick={() => {
-          reset();
+          onClick(true, "employee");
         }}
       >
         Employee Meal

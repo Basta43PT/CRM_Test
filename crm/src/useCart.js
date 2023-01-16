@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 export function useCart(id = undefined, name = undefined, price = undefined) {
   const [cart, setCart] = useState([]);
-  console.log(cart, id, "UseCart:cart");
 
   function add(id, name, price) {
     const item = cart?.find((item) => item.id == id);

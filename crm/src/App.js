@@ -25,15 +25,6 @@ function App() {
   }, []);
 
   return (
-    // <div className="App">
-    //   <div class="topnav">
-    //     <a class="active" to="/">
-    //       Orders
-    //     </a>
-    //     <a href="./AddNewItem">Add New Item</a>
-    //     <a href="#about">About</a>
-    //   </div>
-
     <Router>
       <Menu activeOnlyWhenExact={true} to="/" label="Order" />
       <Menu to="/addItem" label="AddItem" />
@@ -45,8 +36,6 @@ function App() {
         <Route path="/AddItem" element={<AddNewItem />} />
       </Routes>
     </Router>
-
-    // </div>
   );
 }
 

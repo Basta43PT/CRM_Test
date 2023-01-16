@@ -5,7 +5,7 @@
       "name": "goldstar",
       "img": "https://www.logolynx.com/images/logolynx/s_33/3341b415987d01c756c3e6ec6f55e58b.jpeg",
       "price": 15,
-      "amount": 13,
+      "amount": -10,
       "categoryName": "Beers"
     },
     {
@@ -13,7 +13,7 @@
       "name": "carlsberg",
       "img": "https://seeklogo.com/images/C/Carlsberg-logo-1738A5D435-seeklogo.com.png",
       "price": 15,
-      "amount": 3,
+      "amount": -7,
       "categoryName": "Beers"
     },
     {
@@ -21,7 +21,7 @@
       "name": "corona",
       "img": "#",
       "price": 15,
-      "amount": 12,
+      "amount": 0,
       "categoryName": "Beers"
     },
     {
@@ -29,7 +29,7 @@
       "name": "heineken",
       "img": "#",
       "price": 15,
-      "amount": 11,
+      "amount": 7,
       "categoryName": "Beers"
     },
     {
