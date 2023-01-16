@@ -2,57 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Link } from "react-router-dom";
 import { Category } from "../category";
 import { ShoppingCart } from "../shoppingCart";
+import { useCart } from "../useCart.js";
 import styles from "./page.module.css";
-
-export function Page({ data }) {
-  const newData = manageData(data);
-  const [cart, setCart] = useState([]);
-
-  function sendShoppingCart(state, type) {
-    //update db and intial shoppingCart
-    console.log(cart, "cart");
-    if (cart.length > 0) {
-      for (let i = 0; i < cart.length; i++) {
-        const id = cart[i].id;
-        if (data[id].categoryName != "Chasers") {
-          const newAmount = data[id].amount - cart[i].count;
-          let updateItem = data[id];
-          updateItem.amount = newAmount;
-
-          try {
-            fetch(`http://localhost:3000/data/${id}`, {
-              method: "put",
-              headers: { "Content-type": "application/json" },
-              body: JSON.stringify(updateItem),
-            });
-          } catch (e) {
-            console.error(e);
-          }
-        }
-      }
-      setCart([]);
-    }
-  }
-
-  return (
-    <div>
-      <div className={styles.page}>
-        <div className={styles.categoreList}>
-          {newData.map((category) => (
-            <Category
-              categoryName={category.categoryName}
-              items={category.items}
-            />
-          ))}
-        </div>
-
-        <div className={styles.ShoppingCart}>
-          <ShoppingCart onClick={sendShoppingCart} />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // change the data from the dataBase to fit the rest of the code
 function manageData(data) {
@@ -90,4 +41,57 @@ function manageData(data) {
     }
   });
   return newData;
+}
+
+export function Page({ data }) {
+  const newData = manageData(data);
+  const { add, sub, reset, cart } = useCart();
+  console.log(cart, "page:cart");
+  function sendShoppingCart(state, type) {
+    //update db and intial shoppingCart
+    console.log(cart, "cart");
+    if (cart.length > 0) {
+      for (let i = 0; i < cart.length; i++) {
+        const id = cart[i].id;
+        if (data[id].categoryName != "Chasers") {
+          const newAmount = data[id].amount - cart[i].count;
+          let updateItem = data[id];
+          updateItem.amount = newAmount;
+
+          try {
+            fetch(`http://localhost:3000/data/${id}`, {
+              method: "put",
+              headers: { "Content-type": "application/json" },
+              body: JSON.stringify(updateItem),
+            });
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      }
+      reset();
+    }
+  }
+
+  return (
+    <div>
+      <div className={styles.page}>
+        <div className={styles.categoreList}>
+          {newData.map((category) => (
+            <Category
+              categoryName={category.categoryName}
+              items={category.items}
+              add={add}
+              sub={sub}
+              cart={cart}
+            />
+          ))}
+        </div>
+
+        <div className={styles.ShoppingCart}>
+          <ShoppingCart onClick={sendShoppingCart} cart={cart} />
+        </div>
+      </div>
+    </div>
+  );
 }

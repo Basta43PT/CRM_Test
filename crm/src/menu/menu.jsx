@@ -9,9 +9,16 @@ export function Menu({ label, to, activeOnlyWhenExact }) {
   });
 
   return (
-    <div className={match ? "active" : ""}>
-      {match && "> "}
-      <Link to={to}>{label}</Link>
+    <div className={styles.top}>
+      <div className={styles.topnav}>
+        <Link className={styles.active} to={to}>
+          {label}
+        </Link>
+      </div>
     </div>
   );
+}
+{
+  /* className={match ? "active" : ""}>
+      {match && "> "} */
 }
