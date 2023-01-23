@@ -1,6 +1,8 @@
 .ShoppingCart {
         border: 1px solid gray;
         margin: 10px;
+        background-color: white;
+        color: black;
 }
 .title{
     margin:10px;

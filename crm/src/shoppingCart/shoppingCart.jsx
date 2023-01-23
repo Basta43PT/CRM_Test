@@ -40,14 +40,14 @@ export function ShoppingCart({ onClick, cart }) {
           </div>
         </div>
       </div>
-      <button
+      {/* <button
         className={styles.employeeButto}
         onClick={() => {
           onClick(true, "employee");
         }}
       >
         Employee Meal
-      </button>
+      </button> */}
     </div>
   );
 }

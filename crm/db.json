@@ -5,7 +5,7 @@
       "name": "goldstar",
       "img": "https://www.logolynx.com/images/logolynx/s_33/3341b415987d01c756c3e6ec6f55e58b.jpeg",
       "price": 15,
-      "amount": -10,
+      "amount": -27,
       "categoryName": "Beers"
     },
     {
@@ -13,7 +13,7 @@
       "name": "carlsberg",
       "img": "https://seeklogo.com/images/C/Carlsberg-logo-1738A5D435-seeklogo.com.png",
       "price": 15,
-      "amount": -7,
+      "amount": -18,
       "categoryName": "Beers"
     },
     {
@@ -21,7 +21,7 @@
       "name": "corona",
       "img": "#",
       "price": 15,
-      "amount": 0,
+      "amount": -11,
       "categoryName": "Beers"
     },
     {
@@ -29,7 +29,7 @@
       "name": "heineken",
       "img": "#",
       "price": 15,
-      "amount": 7,
+      "amount": 4,
       "categoryName": "Beers"
     },
     {
@@ -79,6 +79,16 @@
       "price": 5,
       "amount": 20,
       "categoryName": "Soft Drinks"
+    }
+  ],
+  "cash": [
+    {
+      "type": "Entrance",
+      "date": "17/01/2023",
+      "hour": "02:25",
+      "counted": 100,
+      "countedBy": "ירין",
+      "totalSum": 100
     }
   ]
 }

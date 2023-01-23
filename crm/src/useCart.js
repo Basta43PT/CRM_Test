@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export function useCart(id = undefined, name = undefined, price = undefined) {
+export function useCart() {
   const [cart, setCart] = useState([]);
 
   function add(id, name, price) {

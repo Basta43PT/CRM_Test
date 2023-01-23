@@ -2,6 +2,8 @@
     height: 100vh;
     display: flex;
     justify-content: space-between;
+    background-color: black;
+    color:white
 }
 .categoreList {
     flex-grow: 1;
