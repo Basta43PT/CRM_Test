@@ -47,9 +47,9 @@ export function Page({ data }) {
   const newData = manageData(data);
   const { add, sub, reset, cart } = useCart();
   console.log(cart, "page:cart");
+
   function sendShoppingCart(state, type) {
     //update db and intial shoppingCart
-    console.log(cart, "cart");
     if (cart.length > 0) {
       for (let i = 0; i < cart.length; i++) {
         const id = cart[i].id;

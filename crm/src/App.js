@@ -36,12 +36,12 @@ function App() {
 
   return (
     <Router>
-      <Menu activeOnlyWhenExact={true} to="/" label="Order" />
-      <Menu to="/cancelOrder" label="Cancel Order" />
-      <Menu to="/cash" label="Cash Box" />
-      <Menu to="/addItem" label="Add Item" />
-
-      <hr />
+      <div className="NavBar">
+        <Menu activeOnlyWhenExact={true} to="/" label="Order" />
+        <Menu to="/cancelOrder" label="Cancel Order" />
+        <Menu to="/cash" label="Cash Box" />
+        <Menu to="/addItem" label="Add Item" />
+      </div>
 
       <Routes>
         <Route exact path="/" element={<Page data={data} />} />

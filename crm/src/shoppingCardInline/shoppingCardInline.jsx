@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./shoppingCardInline.module.css";
 
 export function ShoppingCardInline({ price, count, name }) {
-  let sum = price * count;
+  const sum = price * count;
   return (
     <tr>
       <td scope="row"> {name} </td>

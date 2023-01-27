@@ -5,7 +5,7 @@ import { Item } from "../item";
 export function Category({ categoryName, items, add, sub, cart }) {
   return (
     <div className={styles.category}>
-      <h1>{categoryName}</h1>
+      <h2>{categoryName}</h2>
       <div className={styles.itemList}>
         {items.map((item, index) => (
           <Item
@@ -16,6 +16,7 @@ export function Category({ categoryName, items, add, sub, cart }) {
             add={add}
             sub={sub}
             cart={cart}
+            categoryName={categoryName}
           />
         ))}
       </div>

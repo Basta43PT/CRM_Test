@@ -1,25 +1,43 @@
 .ShoppingCart {
         border: 1px solid gray;
-        margin: 10px;
+        margin: 10px!important;
         background-color: white;
         color: black;
+        height: 90%;
 }
 .title{
     margin:10px;
 }
+.tabel{
+    display: initial;
+}
+
+/* .button{
+    position: absolute;
+    bottom: 5%;
+    right: 20%;
+} */
+
 .button{
     font-size: 25px;
-    width: 90px;
-    margin-left: 30%;
-    background-color: #adff2f;
-    margin-bottom: 10px;
-    border-radius: 8px;
+    width: 23%;
+    position: absolute;
+    margin: 1%;
+    display: table-cell; 
+    bottom: 7%;
+    
+
+    background-color: rgb(28, 175, 67);
+    border: rgb(35 150 66);
+    border-style: double;
+    border-radius: 13px;
+    color: white
 }
-.button:active {
-    background-color: #7bff2f;}
+.buttonText:active {
+    background-color: rgb(35 150 66);}
 .employeeButto{
     width: 90px;
-    margin-left: 33%;
+    margin-left: 28%;
     background-color: orange;
     border-radius: 8px;
     margin-top: 10px;
