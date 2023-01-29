@@ -1,31 +1,29 @@
 import React, { useState, useEffect } from "react";
 import styles from "./cash_calculate.module.css";
 
-export function Cash_Calculate({}) {
-  const dict = [
-    { name: 200, value: 0 },
-    { name: 100, value: 0 },
-    { name: 50, value: 0 },
-    { name: 20, value: 0 },
-    { name: 10, value: 0 },
-    { name: 5, value: 0 },
-    { name: 2, value: 0 },
-    { name: 1, value: 0 },
-    { name: 0.5, value: 0 },
-    { name: 0.1, value: 0 },
-  ];
-  const [inputValues, setInputValues] = useState(dict);
-
-  const handleChange = (event) => {
-    setInputValues(event.target.value);
-  };
-
+export function Cash_Calculate({ numLine, onChange }) {
+  const name = numLine.name;
   return (
-    <div className={styles.case_calculate}>
-      {/* {inputValues.map((inputValue) => (
-        <label id={inputValue.name}> {inputValue.name} </label>
-        <input type="text" value={inputValue.value} onChange={handleChange} />
-      ))} */}
+    <div className={styles.cash_calculate}>
+      <table>
+        <tr>
+          <th>₪ {name}</th>
+          <td>
+            <input
+              type="number"
+              value={numLine.value}
+              onChange={(event) => {
+                console.log(
+                  event.target.value,
+                  numLine,
+                  "cash_calculate:event"
+                );
+                onChange(event.target.value, numLine.name);
+              }}
+            />
+          </td>
+        </tr>
+      </table>
     </div>
   );
 }

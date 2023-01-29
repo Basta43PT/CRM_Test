@@ -4,12 +4,10 @@ import { Counter } from "../counter";
 import classnames from "classnames";
 
 export function Item({ name, price, id, add, sub, cart, categoryName }) {
-  // const item = cart?.find((item) => item.id == id);
-  // const count = item?.count ? item.count : 0;
-  const className = classnames(styles.item, (categoryNameTemp) => {
-    if (categoryName.includes(" ")) {
-      return categoryName.replace(" ", "_");
-    } else return categoryName;
+  const className = classnames(styles.item, {
+    [styles.Beers]: categoryName === "Beers",
+    [styles.Chasers]: categoryName === "Chasers",
+    [styles.Soft_Drinks]: categoryName === "Soft Drinks",
   });
 
   return (
@@ -21,13 +19,6 @@ export function Item({ name, price, id, add, sub, cart, categoryName }) {
     >
       <h5>{name}</h5>
       <div>₪ {price}</div>
-      {/* <div className={styles.counter}>
-        <Counter
-          add={() => add(id, name, price)}
-          subFromCart={() => sub(id)}
-          count={count}
-        />
-      </div> */}
     </div>
   );
 }

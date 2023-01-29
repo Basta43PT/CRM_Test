@@ -48,13 +48,16 @@ export function Page({ data }) {
   const { add, sub, reset, cart } = useCart();
   console.log(cart, "page:cart");
 
-  function sendShoppingCart(state, type) {
+  function sendShoppingCart(type) {
     //update db and intial shoppingCart
     if (cart.length > 0) {
       for (let i = 0; i < cart.length; i++) {
         const id = cart[i].id;
         if (data[id].categoryName != "Chasers") {
-          const newAmount = data[id].amount - cart[i].count;
+          const newAmount =
+            type == "order"
+              ? data[id].amount - cart[i].count
+              : data[id].amount + cart[i].count;
           let updateItem = data[id];
           updateItem.amount = newAmount;
 
@@ -89,7 +92,7 @@ export function Page({ data }) {
         </div>
 
         <div className={styles.ShoppingCart}>
-          <ShoppingCart onClick={sendShoppingCart} cart={cart} />
+          <ShoppingCart onClick={sendShoppingCart} cart={cart} sub={sub} />
         </div>
       </div>
     </div>

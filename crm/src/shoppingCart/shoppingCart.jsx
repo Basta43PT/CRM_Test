@@ -4,39 +4,60 @@ import { ShoppingCardInline } from "../shoppingCardInline";
 import { useCart } from "../useCart.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export function ShoppingCart({ onClick, cart }) {
-  // const sum = cart.map((item)=>{})
+export function ShoppingCart({ onClick, cart, sub }) {
+  const [checked, setChecked] = useState(false);
+
+  const sum = cart.reduce(
+    (sum, item) => (sum = sum + item.price * item.count),
+    0
+  );
+  // checkBox
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
   return (
     <div className={styles.ShoppingCart}>
       <h1 className={styles.title}>Shopping Cart</h1>
 
-      <div className>
-        <table className={styles.tabel}>
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Sum</th>
-            </tr>
-          </thead>
+      <div className={styles.shoppingCardInline}>
+        <ui className>
           {cart.map((cartItem) => (
             <ShoppingCardInline
+              id={cartItem.id}
               name={cartItem.name}
               price={cartItem.price}
               count={cartItem.count}
+              sub={sub}
             />
           ))}
-        </table>
+        </ui>
+        <div className={styles.buttonWarp}>
+          <button
+            className={styles.button}
+            style={
+              checked
+                ? {
+                    backgroundColor: "red",
+                    color: "white",
+                    border: "rgb(169, 51, 19)",
+                  }
+                : {}
+            }
+            onClick={() => {
+              onClick(checked ? "cancel" : "order");
+              setChecked(false);
+            }}
+          >
+            {checked ? "Cancel" : "Order"} ₪{sum}
+          </button>
+        </div>
 
-        <button
-          className={styles.button}
-          onClick={() => {
-            onClick(true, "order");
-          }}
-        >
-          Order
-        </button>
+        <div className={styles.checkBox}>
+          <label>
+            <input type="checkbox" checked={checked} onChange={handleChange} />
+            Cancel Order
+          </label>
+        </div>
       </div>
     </div>
   );

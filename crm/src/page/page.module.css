@@ -1,9 +1,10 @@
 .page {
-    height: 100vh;
+    height: 96vh;
     display: flex;
     justify-content: space-between;
     background-color: black;
-    color:white
+    color:white;
+    width: 100%;
 }
 .categoreList {
     flex-grow: 1;

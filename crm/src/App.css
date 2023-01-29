@@ -1,6 +1,8 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 .NavBar{
   background-color: #333;
+  position: sticky;
+  top: 0px;
 }

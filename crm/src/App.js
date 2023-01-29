@@ -17,7 +17,7 @@ import { CancelOrder } from "./cancelOrder/cancelOrder";
 
 function App() {
   const [data, fetchData] = useState([]);
-  const [totalSum, fetchTotalSum] = useState([]);
+  const [cashList, fetchcashList] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/data")
@@ -29,7 +29,7 @@ function App() {
     fetch("http://localhost:3000/cash")
       .then((res) => res.json())
       .then((res) => {
-        fetchTotalSum(res);
+        fetchcashList(res);
         console.log(res, "cash");
       });
   }, []);
@@ -38,15 +38,13 @@ function App() {
     <Router>
       <div className="NavBar">
         <Menu activeOnlyWhenExact={true} to="/" label="Order" />
-        <Menu to="/cancelOrder" label="Cancel Order" />
         <Menu to="/cash" label="Cash Box" />
         <Menu to="/addItem" label="Add Item" />
       </div>
 
       <Routes>
         <Route exact path="/" element={<Page data={data} />} />
-        <Route exact path="/cash" element={<Cash cashData={totalSum} />} />
-        <Route exact path="/cancelOrder" element={<CancelOrder />} />
+        <Route exact path="/cash" element={<Cash cashData={cashList} />} />
         <Route path="/AddItem" element={<AddNewItem />} />
       </Routes>
     </Router>

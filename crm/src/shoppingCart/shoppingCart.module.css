@@ -3,44 +3,50 @@
         margin: 10px!important;
         background-color: white;
         color: black;
-        height: 90%;
+        height: 93%;
+
 }
 .title{
     margin:10px;
 }
-.tabel{
-    display: initial;
+.shoppingCardInline{
+    /* display: initial; */
+    /* margin-top: 12px; */
+    /* overflow:scroll;*/
+    height: 67%!important;
+    overflow-y: scroll;
+    scroll-margin: 20px;
 }
 
-/* .button{
-    position: absolute;
-    bottom: 5%;
-    right: 20%;
-} */
+.buttonWarp{
+
+
+}
 
 .button{
     font-size: 25px;
-    width: 23%;
+    width: 18%;
     position: absolute;
-    margin: 1%;
     display: table-cell; 
-    bottom: 7%;
-    
-
+    bottom: 8%;
+    margin: 1%;
     background-color: rgb(28, 175, 67);
     border: rgb(35 150 66);
     border-style: double;
     border-radius: 13px;
-    color: white
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
 }
-.buttonText:active {
-    background-color: rgb(35 150 66);}
-.employeeButto{
-    width: 90px;
-    margin-left: 28%;
-    background-color: orange;
-    border-radius: 8px;
-    margin-top: 10px;
+.button:active {
+    background-color: rgb(62, 192, 105);}
+
+
+.checkBox{
+    position: absolute;
+    display: table-cell; 
+    /* padding:10px; */
+    bottom: 5%;
+
 }
-.employeeButto:active{
-    background-color: rgb(255, 94, 0);}
+
+  

@@ -2,7 +2,7 @@
   "data": [
     {
       "id": 0,
-      "name": "goldstar",
+      "name": "Goldstar",
       "img": "https://www.logolynx.com/images/logolynx/s_33/3341b415987d01c756c3e6ec6f55e58b.jpeg",
       "price": 15,
       "amount": -37,
@@ -10,15 +10,15 @@
     },
     {
       "id": 1,
-      "name": "carlsberg",
+      "name": "Carlsberg",
       "img": "https://seeklogo.com/images/C/Carlsberg-logo-1738A5D435-seeklogo.com.png",
       "price": 15,
-      "amount": -33,
+      "amount": -36,
       "categoryName": "Beers"
     },
     {
       "id": 2,
-      "name": "corona",
+      "name": "Corona",
       "img": "#",
       "price": 15,
       "amount": -21,
@@ -26,7 +26,7 @@
     },
     {
       "id": 3,
-      "name": "heineken",
+      "name": "Heineken",
       "img": "#",
       "price": 15,
       "amount": -3,
@@ -34,7 +34,7 @@
     },
     {
       "id": 4,
-      "name": "arak",
+      "name": "Arak",
       "img": "#",
       "price": 5,
       "amount": 20,
@@ -42,7 +42,7 @@
     },
     {
       "id": 5,
-      "name": "rum",
+      "name": "Rum",
       "img": "#",
       "price": 5,
       "amount": 20,
@@ -50,7 +50,7 @@
     },
     {
       "id": 6,
-      "name": "whiskey",
+      "name": "Whiskey",
       "img": "#",
       "price": 5,
       "amount": 20,
@@ -58,40 +58,41 @@
     },
     {
       "id": 7,
-      "name": "cola",
+      "name": "Cola",
+      "img": "#",
+      "price": 5,
+      "amount": 12,
+      "categoryName": "Soft Drinks"
+    },
+    {
+      "id": 8,
+      "name": "Ziro",
       "img": "#",
       "price": 5,
       "amount": 14,
       "categoryName": "Soft Drinks"
     },
     {
-      "id": 8,
-      "name": "ziro",
-      "img": "#",
-      "price": 5,
-      "amount": 15,
-      "categoryName": "Soft Drinks"
-    },
-    {
       "id": 9,
-      "name": "sprite",
+      "name": "Sprite",
       "img": "#",
       "price": 5,
-      "amount": 15,
+      "amount": 14,
       "categoryName": "Soft Drinks"
     },
     {
       "id": 10,
-      "name": "Castil",
+      "name": "Castle",
       "img": "#",
       "price": 20,
-      "amount": 7,
+      "amount": 15,
       "categoryName": "Beers"
     }
   ],
   "cash": [
     {
       "type": "Entrance",
+      "employee": "Yarin",
       "date": "17/01/2023",
       "hour": "02:25",
       "counted": 100,
