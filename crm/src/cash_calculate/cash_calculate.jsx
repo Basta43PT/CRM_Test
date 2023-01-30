@@ -7,7 +7,7 @@ export function Cash_Calculate({ numLine, onChange }) {
     <div className={styles.cash_calculate}>
       <table>
         <tr>
-          <th>₪ {name}</th>
+          <th>₪{name}</th>
           <td>
             <input
               type="number"

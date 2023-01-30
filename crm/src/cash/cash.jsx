@@ -36,11 +36,18 @@ export function Cash({ cashData }) {
   return (
     <div className={styles.cash}>
       <h2>Total Cash: ₪{lastCounted} counted by: </h2>
-      <div className={styles.cash_calculate}>
-        {inputs.map((numLine) => {
-          return <Cash_Calculate numLine={numLine} onChange={handleChange} />;
-        })}
-        <h3>Total Conuting: ₪{sum ? sum : 0} </h3>
+
+      <div className={styles.case_counting}>
+        <div className={styles.cash_calculate}>
+          {inputs.map((numLine) => {
+            return <Cash_Calculate numLine={numLine} onChange={handleChange} />;
+          })}
+        </div>
+        <div className={styles.total_counting}>
+          <h4>Total Conuting</h4>
+          <h4> ₪{sum ? sum : 0} </h4>
+          <button className={styles.button}>Confirm</button>
+        </div>
       </div>
     </div>
   );
