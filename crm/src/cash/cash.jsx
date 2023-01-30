@@ -19,28 +19,28 @@ export function Cash({ cashData }) {
   const [inputs, setInputs] = useState(dict);
   const handleChange = (event, name) => {
     const next = inputs.map((line) => {
-      console.log(event, "event");
-      if (name == line.name) return { ...inputs, [line.value]: event };
+      if (name == line.name) return { ...line, value: event };
       return line;
     });
     console.log(next, "next");
     setInputs(next);
   };
-  const sum = dict.reduce((sum, num) => sum + Item.name * Item.value, 0);
-  console.log("Case");
+
+  const sum = inputs.reduce((sum, num) => sum + num.name * num.value, 0);
+
   //calculate the first line how much counted in the last counting
   const lastCounted = cashData[cashData.length - 1]
     ? cashData[cashData.length - 1].totalSum
     : 0;
 
   return (
-    <div className={styles.cancelOrder}>
+    <div className={styles.cash}>
       <h2>Total Cash: ₪{lastCounted} counted by: </h2>
-      <div>
+      <div className={styles.cash_calculate}>
         {inputs.map((numLine) => {
           return <Cash_Calculate numLine={numLine} onChange={handleChange} />;
         })}
-        <h3>total conuting: ₪{sum ? sum : 0} </h3>
+        <h3>Total Conuting: ₪{sum ? sum : 0} </h3>
       </div>
     </div>
   );

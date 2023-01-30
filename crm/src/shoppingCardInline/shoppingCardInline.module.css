@@ -25,5 +25,6 @@
     transform: scale(2.4, 1.5);
     font-weight: 700;
     margin-right: 7px;
+    cursor: pointer;
 
 }
