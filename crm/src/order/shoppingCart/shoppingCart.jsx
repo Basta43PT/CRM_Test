@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./shoppingCart.module.css";
 import { ShoppingCardInline } from "../shoppingCardInline";
-import { useCart } from "../useCart.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export function ShoppingCart({ onClick, cart, sub }) {

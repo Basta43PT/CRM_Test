@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Link } from "react-router-dom";
 import { Category } from "../category";
 import { ShoppingCart } from "../shoppingCart";
-import { useCart } from "../useCart.js";
+import { useCart } from "../../useCart.js";
 import styles from "./page.module.css";
 
 // change the data from the dataBase to fit the rest of the code

@@ -5,7 +5,7 @@
       "name": "Goldstar",
       "img": "https://www.logolynx.com/images/logolynx/s_33/3341b415987d01c756c3e6ec6f55e58b.jpeg",
       "price": 15,
-      "amount": -37,
+      "amount": -36,
       "categoryName": "Beers"
     },
     {
@@ -13,7 +13,7 @@
       "name": "Carlsberg",
       "img": "https://seeklogo.com/images/C/Carlsberg-logo-1738A5D435-seeklogo.com.png",
       "price": 15,
-      "amount": -36,
+      "amount": -34,
       "categoryName": "Beers"
     },
     {
@@ -21,7 +21,7 @@
       "name": "Corona",
       "img": "#",
       "price": 15,
-      "amount": -21,
+      "amount": -20,
       "categoryName": "Beers"
     },
     {
@@ -29,7 +29,7 @@
       "name": "Heineken",
       "img": "#",
       "price": 15,
-      "amount": -3,
+      "amount": -1,
       "categoryName": "Beers"
     },
     {
@@ -85,18 +85,90 @@
       "name": "Castle",
       "img": "#",
       "price": 20,
-      "amount": 15,
+      "amount": 17,
       "categoryName": "Beers"
     }
   ],
   "cash": [
     {
+      "id": 1,
       "type": "Entrance",
       "employee": "Yarin",
       "date": "17/01/2023",
       "hour": "02:25",
-      "counted": 100,
       "totalSum": 100
+    },
+    {
+      "id": 2,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "6/2/2023",
+      "hour": "19:53",
+      "totalSum": 1088
+    },
+    {
+      "id": 3,
+      "type": "Exit",
+      "employee": "yarin",
+      "date": "6/2/2023",
+      "hour": "20:43",
+      "totalSum": 208.5
+    },
+    {
+      "id": 4,
+      "type": "Exit",
+      "employee": "yarin",
+      "date": "6/2/2023",
+      "hour": "20:43",
+      "totalSum": 208.5
+    },
+    {
+      "id": 5,
+      "type": "Exit",
+      "employee": "yarin",
+      "date": "6/2/2023",
+      "hour": "20:43",
+      "totalSum": 208.5
+    },
+    {
+      "id": 6,
+      "type": "Exit",
+      "employee": "yarin",
+      "date": "6/2/2023",
+      "hour": "20:43",
+      "totalSum": 208.5
+    },
+    {
+      "id": 7,
+      "type": "Exit",
+      "employee": "yarin",
+      "date": "6/2/2023",
+      "hour": "20:43",
+      "totalSum": 208.5
+    },
+    {
+      "id": 8,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "6/2/2023",
+      "hour": "22:6",
+      "totalSum": 790
+    },
+    {
+      "id": 9,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "6/2/2023",
+      "hour": "22:7",
+      "totalSum": 790
+    },
+    {
+      "id": 10,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "6/2/2023",
+      "hour": "22:37",
+      "totalSum": 638
     }
   ]
 }

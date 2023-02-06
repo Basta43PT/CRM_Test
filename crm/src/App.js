@@ -1,5 +1,5 @@
-import { Page } from "./page";
-import { Cash } from "./cash";
+import { Page } from "./order/page";
+import { Cash } from "./cash/cash";
 import { Menu } from "./menu";
 import React, { useState, useEffect } from "react";
 import { AddNewItem } from "./AddNewItem";
@@ -13,7 +13,6 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { CancelOrder } from "./cancelOrder/cancelOrder";
 
 function App() {
   const [data, fetchData] = useState([]);

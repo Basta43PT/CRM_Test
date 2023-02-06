@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./item.module.css";
-import { Counter } from "../counter";
 import classnames from "classnames";
 
 export function Item({ name, price, id, add, sub, cart, categoryName }) {

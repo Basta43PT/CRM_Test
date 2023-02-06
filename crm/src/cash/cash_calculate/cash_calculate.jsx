@@ -13,11 +13,6 @@ export function Cash_Calculate({ numLine, onChange }) {
               type="number"
               value={numLine.value}
               onChange={(event) => {
-                console.log(
-                  event.target.value,
-                  numLine,
-                  "cash_calculate:event"
-                );
                 onChange(event.target.value, numLine.name);
               }}
             />
