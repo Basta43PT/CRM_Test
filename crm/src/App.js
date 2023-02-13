@@ -17,6 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [data, fetchData] = useState([]);
   const [cashList, fetchcashList] = useState([]);
+  const [users, fetchUsers] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/data")
@@ -31,6 +32,12 @@ function App() {
         fetchcashList(res);
         console.log(res, "cash");
       });
+    fetch("http://localhost:3000/users")
+      .then((res) => res.json())
+      .then((res) => {
+        fetchUsers(res);
+        console.log(res, "users");
+      });
   }, []);
 
   return (
@@ -43,7 +50,11 @@ function App() {
 
       <Routes>
         <Route exact path="/" element={<Page data={data} />} />
-        <Route exact path="/cash" element={<Cash cashData={cashList} />} />
+        <Route
+          exact
+          path="/cash"
+          element={<Cash cashData={cashList} users={users} />}
+        />
         <Route path="/AddItem" element={<AddNewItem />} />
       </Routes>
     </Router>

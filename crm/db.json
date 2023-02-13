@@ -89,86 +89,177 @@
       "categoryName": "Beers"
     }
   ],
+  "users": [
+    {
+      "id": 1,
+      "userName": "yarin",
+      "password": "204341275"
+    },
+    {
+      "id": 2,
+      "userName": "roei",
+      "password": "313474013"
+    },
+    {
+      "id": 3,
+      "userName": "sapir",
+      "password": "205473523"
+    }
+  ],
   "cash": [
     {
       "id": 1,
       "type": "Entrance",
-      "employee": "Yarin",
-      "date": "17/01/2023",
-      "hour": "02:25",
-      "totalSum": 100
+      "employee": "yarin",
+      "date": "2023-02-09T20:06:58.737Z",
+      "totalSum": 687
     },
     {
       "id": 2,
       "type": "Entrance",
       "employee": "yarin",
-      "date": "6/2/2023",
-      "hour": "19:53",
-      "totalSum": 1088
+      "date": "2023-02-10T16:17:32.887Z",
+      "totalSum": 200
     },
     {
       "id": 3,
-      "type": "Exit",
+      "type": "Entrance",
       "employee": "yarin",
-      "date": "6/2/2023",
-      "hour": "20:43",
-      "totalSum": 208.5
+      "date": "2023-02-10T19:48:15.323Z",
+      "totalSum": 1793.5
     },
     {
       "id": 4,
-      "type": "Exit",
-      "employee": "yarin",
-      "date": "6/2/2023",
-      "hour": "20:43",
-      "totalSum": 208.5
+      "type": "Entrance",
+      "employee": "sapir",
+      "date": "2023-02-13T18:10:36.096Z",
+      "totalSum": 0
     },
     {
       "id": 5,
-      "type": "Exit",
+      "type": "Entrance",
       "employee": "yarin",
-      "date": "6/2/2023",
-      "hour": "20:43",
-      "totalSum": 208.5
+      "date": "2023-02-13T18:21:10.632Z",
+      "totalSum": 1600
     },
     {
       "id": 6,
-      "type": "Exit",
+      "type": "Entrance",
       "employee": "yarin",
-      "date": "6/2/2023",
-      "hour": "20:43",
-      "totalSum": 208.5
+      "date": "2023-02-13T18:24:57.121Z",
+      "totalSum": 800
     },
     {
       "id": 7,
       "type": "Exit",
       "employee": "yarin",
-      "date": "6/2/2023",
-      "hour": "20:43",
-      "totalSum": 208.5
+      "date": "2023-02-13T18:41:40.550Z",
+      "totalSum": 800
     },
     {
       "id": 8,
-      "type": "Entrance",
+      "type": "Exit",
       "employee": "yarin",
-      "date": "6/2/2023",
-      "hour": "22:6",
-      "totalSum": 790
+      "date": "2023-02-13T18:43:20.888Z",
+      "totalSum": 600
     },
     {
       "id": 9,
-      "type": "Entrance",
+      "type": "Exit",
       "employee": "yarin",
-      "date": "6/2/2023",
-      "hour": "22:7",
-      "totalSum": 790
+      "date": "2023-02-13T18:51:51.485Z",
+      "totalSum": 400
     },
     {
       "id": 10,
       "type": "Entrance",
       "employee": "yarin",
-      "date": "6/2/2023",
-      "hour": "22:37",
-      "totalSum": 638
+      "date": "2023-02-13T20:34:35.841Z",
+      "totalSum": 1188
+    },
+    {
+      "id": 11,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T20:34:37.028Z",
+      "totalSum": 1188
+    },
+    {
+      "id": 12,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T20:34:38.315Z",
+      "totalSum": 1188
+    },
+    {
+      "id": 13,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T20:37:06.338Z",
+      "totalSum": 400
+    },
+    {
+      "id": 14,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T20:39:19.447Z",
+      "totalSum": 4400
+    },
+    {
+      "id": 15,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T20:50:33.087Z",
+      "totalSum": 1000
+    },
+    {
+      "id": 16,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T21:55:07.929Z",
+      "totalSum": 600
+    },
+    {
+      "id": 17,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T21:56:02.645Z",
+      "totalSum": 0
+    },
+    {
+      "id": 18,
+      "type": "Exit",
+      "employee": "yarin",
+      "date": "2023-02-13T21:59:50.983Z",
+      "totalSum": 1000
+    },
+    {
+      "id": 19,
+      "type": "Exit",
+      "employee": "yarin",
+      "date": "2023-02-13T22:11:31.826Z",
+      "totalSum": 1200.8
+    },
+    {
+      "id": 20,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T22:26:47.326Z",
+      "totalSum": 1.5
+    },
+    {
+      "id": 21,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T22:28:22.575Z",
+      "totalSum": 0.2
+    },
+    {
+      "id": 22,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-13T22:28:46.664Z",
+      "totalSum": 1.5
     }
   ]
 }

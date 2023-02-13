@@ -18,9 +18,19 @@ function getCurrentDateAndTime() {
   return { formattedDate: formattedDate, currentTime: currentTime };
 }
 
-export function Cash({ cashData }) {
-  const [activeButton, setActiveButton] = useState("");
+export function Cash({ cashData, users }) {
+  console.log("Cash");
 
+  const [activeButton, setActiveButton] = useState("");
+  const [IsClicked, setIsClicked] = useState(false);
+
+  //employee is the name of the user that counting the cash
+  const [employee, setemployee] = useState(undefined);
+  useEffect(() => {
+    AddCashCounting();
+    setemployee(undefined);
+  }, [employee]);
+  //handel the data in input box that the user insert
   const dict = [
     { name: 200, value: 0 },
     { name: 100, value: 0 },
@@ -36,12 +46,12 @@ export function Cash({ cashData }) {
   const [inputs, setInputs] = useState(dict);
   const handleChange = (event, name) => {
     const next = inputs.map((line) => {
-      if (name == line.name) return { ...line, value: event };
+      if (name == line.name) return { ...line, value: event > 0 ? event : 0 };
       return line;
     });
     setInputs(next);
   };
-
+  // handel the value total case in the title
   const sum = inputs.reduce((sum, num) => sum + num.name * num.value, 0);
 
   //calculate the first line how much counted in the last counting
@@ -49,47 +59,68 @@ export function Cash({ cashData }) {
     ? cashData[cashData.length - 1].totalSum
     : 0;
 
+  //calculate the first line how much counted in the last counting
+  const lastCaseData = cashData[cashData.length - 1]
+    ? cashData[cashData.length - 1]
+    : undefined;
+
   // handle the pop up window for the user write is name
   const [showPopup, setShowPopup] = useState(false);
   const handleOpenPopup = () => {
-    setShowPopup(true);
+    if (activeButton == "") {
+      alert("Please select either Entrance or Exit.");
+    } else {
+      setIsClicked(true);
+      setShowPopup(true);
+    }
   };
-  const handleClosePopup = () => {
+  const handleClosePopup = (name) => {
     setShowPopup(false);
+    setemployee(name);
+    return;
   };
+
+  //return true if the counting is the first at 5 hour ago
+  //return false for overwrite the last counting
+  function BoolOverwriteCounting() {
+    const CurrentDate = new Date();
+    const lastDate = lastCaseData.date;
+    const diff = Math.floor((lastDate - CurrentDate) / 1000 / 60 / 60);
+    if (activeButton == lastCaseData.type && diff < 10) return false;
+    else return true;
+  }
 
   // add to json the last cash counting
   function AddCashCounting() {
-    if (activeButton != "") {
-      const time = getCurrentDateAndTime();
+    if (employee != undefined) {
+      const date = new Date();
+
       //build new var to push to jason
       const newCounting = {
         id: cashData.id++,
         type: activeButton,
-        employee: "yarin",
-        date: time["formattedDate"],
-        hour: time["currentTime"],
+        employee: employee,
+        date: date,
         totalSum: sum,
       };
-      try {
-        fetch(`http://localhost:3000/cash`, {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          body: JSON.stringify(newCounting),
-        });
-        setInputs(dict);
-      } catch (e) {
-        console.error(e);
+      if (BoolOverwriteCounting) {
+        try {
+          fetch(`http://localhost:3000/cash`, {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(newCounting),
+          });
+          setInputs(dict);
+        } catch (e) {
+          console.error(e);
+        }
       }
-    } else {
-      alert("Please select either Entrance or Exit.");
-      return;
     }
   }
   return (
     <div className={styles.cash}>
       {/* show the first line - last count amount */}
-      <h2>Total Cash: ₪{lastCounted} counted by: </h2>
+      <h1>Total Cash: ₪{lastCounted} counted by: </h1>
 
       <div className={styles.case_counting}>
         <div className={styles.cash_calculate}>
@@ -99,17 +130,16 @@ export function Cash({ cashData }) {
         </div>
 
         <div className={styles.total_counting}>
-          <h4>Total Conuting</h4>
-          <h4> ₪{sum ? sum : 0} </h4>
-          <button className={styles.button} onClick={AddCashCounting}>
+          <h2>Total Conuting</h2>
+          <h2> ₪{sum ? sum : 0} </h2>
+          <button className={styles.button} onClick={handleOpenPopup}>
             Confirm
           </button>
           {showPopup && (
-            <Cash_Pop_Up_User onClose={handleClosePopup}>
-              <h1>Popup Content</h1>
-              <button>Submit</button>
-              <button onClick={handleClosePopup}>Cancel</button>
-            </Cash_Pop_Up_User>
+            <Cash_Pop_Up_User
+              onClose={handleClosePopup}
+              users={users}
+            ></Cash_Pop_Up_User>
           )}
         </div>
         {/* pick Exit\Entrance button */}
@@ -122,7 +152,10 @@ export function Cash({ cashData }) {
                   ? "rgb(62, 192, 105)"
                   : "transparent",
             }}
-            onClick={() => setActiveButton("Entrance")}
+            onClick={() => {
+              setActiveButton("Entrance");
+              setIsClicked(true);
+            }}
           >
             Entrance
           </button>
@@ -133,7 +166,10 @@ export function Cash({ cashData }) {
               backgroundColor:
                 activeButton === "Exit" ? "rgb(62, 192, 105)" : "transparent",
             }}
-            onClick={() => setActiveButton("Exit")}
+            onClick={() => {
+              setActiveButton("Exit");
+              setIsClicked(true);
+            }}
           >
             Exit
           </button>
