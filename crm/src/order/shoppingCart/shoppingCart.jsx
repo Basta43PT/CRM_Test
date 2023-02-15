@@ -52,8 +52,13 @@ export function ShoppingCart({ onClick, cart, sub }) {
         </div>
 
         <div className={styles.checkBox}>
-          <label>
-            <input type="checkbox" checked={checked} onChange={handleChange} />
+          <label className={styles.label_checkBox}>
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={handleChange}
+              className={styles.input_checkBox}
+            />
             Cancel Order
           </label>
         </div>

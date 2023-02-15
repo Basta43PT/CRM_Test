@@ -43,14 +43,16 @@ function manageData(data) {
   return newData;
 }
 
-export function Page({ data }) {
+export function Page({ data, transactions }) {
   const newData = manageData(data);
   const { add, sub, reset, cart } = useCart();
   console.log(cart, "page:cart");
 
   function sendShoppingCart(type) {
-    //update db and intial shoppingCart
+    //update db and intial shoppingCart&&add transaction to db"transactions".
     if (cart.length > 0) {
+      console.log(cart, "page:cart", type, "page:type");
+
       for (let i = 0; i < cart.length; i++) {
         const id = cart[i].id;
         if (data[id].categoryName != "Chasers") {
@@ -71,6 +73,31 @@ export function Page({ data }) {
             console.error(e);
           }
         }
+      }
+      //create transaction for db.json:transactions
+      const sum = cart.reduce(
+        (sum, item) => (sum = sum + item.price * item.count),
+        0
+      );
+      const lastTransaction = transactions[transactions.length - 1]
+        ? transactions[transactions.length - 1]
+        : undefined;
+      const transaction = {
+        id: lastTransaction != undefined ? lastTransaction.id++ : 1,
+        date: new Date(),
+        type: type,
+        totalSum: (type = "order" ? sum : -sum),
+        detail: cart,
+      };
+      console.log(transaction, "page:transaction");
+      try {
+        fetch(`http://localhost:3000/transactions`, {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(transaction),
+        });
+      } catch (e) {
+        console.error(e);
       }
       reset();
     }

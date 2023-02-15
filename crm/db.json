@@ -5,7 +5,7 @@
       "name": "Goldstar",
       "img": "https://www.logolynx.com/images/logolynx/s_33/3341b415987d01c756c3e6ec6f55e58b.jpeg",
       "price": 15,
-      "amount": -36,
+      "amount": -39,
       "categoryName": "Beers"
     },
     {
@@ -13,7 +13,7 @@
       "name": "Carlsberg",
       "img": "https://seeklogo.com/images/C/Carlsberg-logo-1738A5D435-seeklogo.com.png",
       "price": 15,
-      "amount": -34,
+      "amount": -37,
       "categoryName": "Beers"
     },
     {
@@ -21,7 +21,7 @@
       "name": "Corona",
       "img": "#",
       "price": 15,
-      "amount": -20,
+      "amount": -28,
       "categoryName": "Beers"
     },
     {
@@ -29,7 +29,7 @@
       "name": "Heineken",
       "img": "#",
       "price": 15,
-      "amount": -1,
+      "amount": -4,
       "categoryName": "Beers"
     },
     {
@@ -85,7 +85,7 @@
       "name": "Castle",
       "img": "#",
       "price": 20,
-      "amount": 17,
+      "amount": 12,
       "categoryName": "Beers"
     }
   ],
@@ -139,127 +139,64 @@
       "id": 5,
       "type": "Entrance",
       "employee": "yarin",
-      "date": "2023-02-13T18:21:10.632Z",
-      "totalSum": 1600
+      "date": "2023-02-15T19:11:01.874Z",
+      "totalSum": 570
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "date": "2023-02-13T18:10:36.096Z",
+      "type": "order",
+      "totalSum": 0,
+      "detail": [
+        {
+          "id": 7,
+          "name": "Cola",
+          "price": 20,
+          "amount": 5
+        },
+        {
+          "id": 2,
+          "name": "Corona",
+          "price": 15,
+          "amount": 3
+        }
+      ]
     },
     {
-      "id": 6,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T18:24:57.121Z",
-      "totalSum": 800
+      "id": 2,
+      "date": "2023-02-15T18:57:41.738Z",
+      "type": "order",
+      "totalSum": 35,
+      "detail": [
+        {
+          "id": 5,
+          "name": "Rum",
+          "price": 5,
+          "count": 7
+        }
+      ]
     },
     {
-      "id": 7,
-      "type": "Exit",
-      "employee": "yarin",
-      "date": "2023-02-13T18:41:40.550Z",
-      "totalSum": 800
-    },
-    {
-      "id": 8,
-      "type": "Exit",
-      "employee": "yarin",
-      "date": "2023-02-13T18:43:20.888Z",
-      "totalSum": 600
-    },
-    {
-      "id": 9,
-      "type": "Exit",
-      "employee": "yarin",
-      "date": "2023-02-13T18:51:51.485Z",
-      "totalSum": 400
-    },
-    {
-      "id": 10,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T20:34:35.841Z",
-      "totalSum": 1188
-    },
-    {
-      "id": 11,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T20:34:37.028Z",
-      "totalSum": 1188
-    },
-    {
-      "id": 12,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T20:34:38.315Z",
-      "totalSum": 1188
-    },
-    {
-      "id": 13,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T20:37:06.338Z",
-      "totalSum": 400
-    },
-    {
-      "id": 14,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T20:39:19.447Z",
-      "totalSum": 4400
-    },
-    {
-      "id": 15,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T20:50:33.087Z",
-      "totalSum": 1000
-    },
-    {
-      "id": 16,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T21:55:07.929Z",
-      "totalSum": 600
-    },
-    {
-      "id": 17,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T21:56:02.645Z",
-      "totalSum": 0
-    },
-    {
-      "id": 18,
-      "type": "Exit",
-      "employee": "yarin",
-      "date": "2023-02-13T21:59:50.983Z",
-      "totalSum": 1000
-    },
-    {
-      "id": 19,
-      "type": "Exit",
-      "employee": "yarin",
-      "date": "2023-02-13T22:11:31.826Z",
-      "totalSum": 1200.8
-    },
-    {
-      "id": 20,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T22:26:47.326Z",
-      "totalSum": 1.5
-    },
-    {
-      "id": 21,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T22:28:22.575Z",
-      "totalSum": 0.2
-    },
-    {
-      "id": 22,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-13T22:28:46.664Z",
-      "totalSum": 1.5
+      "id": 3,
+      "date": "2023-02-15T18:58:35.726Z",
+      "type": "order",
+      "totalSum": 105,
+      "detail": [
+        {
+          "id": 5,
+          "name": "Rum",
+          "price": 5,
+          "count": 6
+        },
+        {
+          "id": 2,
+          "name": "Corona",
+          "price": 15,
+          "count": 5
+        }
+      ]
     }
   ]
 }

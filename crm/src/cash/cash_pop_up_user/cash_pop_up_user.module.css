@@ -24,7 +24,7 @@ h3{
 }
 .inputUserName{
     border-Radius: 0px;
-    width: 160px;
+    width: 160px!important;
     margin-left: 10px;
     font-size: 16px;; 
 }

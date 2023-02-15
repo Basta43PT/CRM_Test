@@ -3,7 +3,7 @@
         margin: 10px!important;
         background-color: white;
         color: black;
-        height: 93%;
+        height: 94%;
 
 }
 .title{
@@ -25,11 +25,12 @@
 
 .button{
     font-size: 25px;
-    width: 18%;
+    width: 17%;
     position: absolute;
     display: table-cell; 
     bottom: 8%;
-    margin: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
     background-color: rgb(28, 175, 67);
     border: rgb(35 150 66);
     border-style: double;
@@ -44,9 +45,15 @@
 .checkBox{
     position: absolute;
     display: table-cell; 
-    /* padding:10px; */
-    bottom: 5%;
-
+    bottom: 4.5%;
+    font-size: 20px;
 }
-
-  
+.input_checkBox{
+    width: 50px!important;
+    height: 20px;
+}
+.label_checkBox{
+    display: flex;
+    align-items: center;
+    font-weight:bold;
+}

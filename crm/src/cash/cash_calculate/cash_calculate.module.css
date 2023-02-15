@@ -18,7 +18,7 @@
     text-align: right;
 
 }
-input{
+.input_cash_cal{
     cursor: pointer;
     width: 100px;
     height: 30px;
