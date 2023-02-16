@@ -2,39 +2,39 @@
   "data": [
     {
       "id": 0,
-      "name": "goldstar",
+      "name": "Goldstar",
       "img": "https://www.logolynx.com/images/logolynx/s_33/3341b415987d01c756c3e6ec6f55e58b.jpeg",
       "price": 15,
-      "amount": 13,
+      "amount": -39,
       "categoryName": "Beers"
     },
     {
       "id": 1,
-      "name": "carlsberg",
+      "name": "Carlsberg",
       "img": "https://seeklogo.com/images/C/Carlsberg-logo-1738A5D435-seeklogo.com.png",
       "price": 15,
-      "amount": 3,
+      "amount": -37,
       "categoryName": "Beers"
     },
     {
       "id": 2,
-      "name": "corona",
+      "name": "Corona",
       "img": "#",
       "price": 15,
-      "amount": 12,
+      "amount": -28,
       "categoryName": "Beers"
     },
     {
       "id": 3,
-      "name": "heineken",
+      "name": "Heineken",
       "img": "#",
       "price": 15,
-      "amount": 11,
+      "amount": -4,
       "categoryName": "Beers"
     },
     {
       "id": 4,
-      "name": "arak",
+      "name": "Arak",
       "img": "#",
       "price": 5,
       "amount": 20,
@@ -42,7 +42,7 @@
     },
     {
       "id": 5,
-      "name": "rum",
+      "name": "Rum",
       "img": "#",
       "price": 5,
       "amount": 20,
@@ -50,7 +50,7 @@
     },
     {
       "id": 6,
-      "name": "whiskey",
+      "name": "Whiskey",
       "img": "#",
       "price": 5,
       "amount": 20,
@@ -58,27 +58,145 @@
     },
     {
       "id": 7,
-      "name": "cola",
+      "name": "Cola",
       "img": "#",
       "price": 5,
-      "amount": 20,
+      "amount": 12,
       "categoryName": "Soft Drinks"
     },
     {
       "id": 8,
-      "name": "ziro",
+      "name": "Ziro",
       "img": "#",
       "price": 5,
-      "amount": 20,
+      "amount": 14,
       "categoryName": "Soft Drinks"
     },
     {
       "id": 9,
-      "name": "sprite",
+      "name": "Sprite",
       "img": "#",
       "price": 5,
-      "amount": 20,
+      "amount": 14,
       "categoryName": "Soft Drinks"
+    },
+    {
+      "id": 10,
+      "name": "Castle",
+      "img": "#",
+      "price": 20,
+      "amount": 12,
+      "categoryName": "Beers"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "userName": "yarin",
+      "password": "204341275"
+    },
+    {
+      "id": 2,
+      "userName": "roei",
+      "password": "313474013"
+    },
+    {
+      "id": 3,
+      "userName": "sapir",
+      "password": "205473523"
+    }
+  ],
+  "cash": [
+    {
+      "id": 1,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-09T20:06:58.737Z",
+      "totalSum": 687
+    },
+    {
+      "id": 2,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-10T16:17:32.887Z",
+      "totalSum": 200
+    },
+    {
+      "id": 3,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-10T19:48:15.323Z",
+      "totalSum": 1793.5
+    },
+    {
+      "id": 4,
+      "type": "Entrance",
+      "employee": "sapir",
+      "date": "2023-02-13T18:10:36.096Z",
+      "totalSum": 0
+    },
+    {
+      "id": 5,
+      "type": "Entrance",
+      "employee": "yarin",
+      "date": "2023-02-15T19:11:01.874Z",
+      "totalSum": 570
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "date": "2023-02-13T18:10:36.096Z",
+      "type": "order",
+      "totalSum": 0,
+      "detail": [
+        {
+          "id": 7,
+          "name": "Cola",
+          "price": 20,
+          "amount": 5
+        },
+        {
+          "id": 2,
+          "name": "Corona",
+          "price": 15,
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "2023-02-15T18:57:41.738Z",
+      "type": "order",
+      "totalSum": 35,
+      "detail": [
+        {
+          "id": 5,
+          "name": "Rum",
+          "price": 5,
+          "count": 7
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "2023-02-15T18:58:35.726Z",
+      "type": "order",
+      "totalSum": 105,
+      "detail": [
+        {
+          "id": 5,
+          "name": "Rum",
+          "price": 5,
+          "count": 6
+        },
+        {
+          "id": 2,
+          "name": "Corona",
+          "price": 15,
+          "count": 5
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,43 @@
+.mainTable {
+  border-collapse: collapse;
+  width: 600px;
+  text-align: center;
+  display: block;
+  padding: 2.3rem;
+  min-width: 200px;
+  margin: 2rem;
+  font-family: verdana;
+  font-size: 15pt;
+  line-height: 25px;
+}
+
+.mainTable tbody {
+  overflow-y: scroll;
+  /*overflow-x: scroll;*/
+  display: inline-table;
+}
+
+.mainTable td {
+  height: 35px;
+  border: dashed 1px rgb(75, 75, 75);
+  font-weight: bold;
+  min-width: 200px;
+}
+.mainTable th {
+  height: 25px;
+  border: dashed 1px rgb(75, 75, 75);
+  font-size: larger;
+  font-weight: bold;
+  background-color: rgb(132, 234, 234);
+  min-width: 200px;
+  padding: 1rem;
+  
+}
+.transactiontitle{
+  text-align: center;
+}
+.transactionTable{
+  text-align: center;
+
+}
+

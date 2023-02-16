@@ -1,0 +1,59 @@
+.ShoppingCart {
+        border: 1px solid gray;
+        margin: 10px!important;
+        background-color: white;
+        color: black;
+        height: 94%;
+
+}
+.title{
+    margin:10px;
+}
+.shoppingCardInline{
+    /* display: initial; */
+    /* margin-top: 12px; */
+    /* overflow:scroll;*/
+    height: 67%!important;
+    overflow-y: scroll;
+    scroll-margin: 20px;
+}
+
+.buttonWarp{
+
+
+}
+
+.button{
+    font-size: 25px;
+    width: 17%;
+    position: absolute;
+    display: table-cell; 
+    bottom: 8%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    background-color: rgb(28, 175, 67);
+    border: rgb(35 150 66);
+    border-style: double;
+    border-radius: 13px;
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
+}
+.button:active {
+    background-color: rgb(62, 192, 105);}
+
+
+.checkBox{
+    position: absolute;
+    display: table-cell; 
+    bottom: 4.5%;
+    font-size: 20px;
+}
+.input_checkBox{
+    width: 50px!important;
+    height: 20px;
+}
+.label_checkBox{
+    display: flex;
+    align-items: center;
+    font-weight:bold;
+}

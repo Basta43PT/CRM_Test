@@ -1,0 +1,35 @@
+.top{
+    background-color: #333;
+    display: inline-grid;
+    overflow: hidden;
+    padding: 3px 13px;
+
+}
+  /* Change the color of links on hover */
+  .top:hover {
+    background-color: #04AA6D;
+    overflow: hidden;
+
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav {
+    color: #f2f2f2;
+    text-align: left;
+    padding: 0px 5px;
+    font-size: 1.05rem;
+    overflow: hidden;
+    margin-left: 5px; 
+
+  }
+  .active  {
+    color: white !important;
+    text-decoration: none;
+  }
+
+  /* .menu_img { 
+    float: left;
+  } */
+
+
+

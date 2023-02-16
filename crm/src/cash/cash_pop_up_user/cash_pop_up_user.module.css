@@ -1,0 +1,72 @@
+.popUp{
+    background: #ffffff;
+    padding-top: 30px;
+    width: 30%;
+    height: 45%;;
+    border: 1px solid black;
+}
+h3{
+    font-weight:bold;
+}
+.inputPopUp{
+    padding-top: 40px;
+    display: flex;
+    font-Size: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+.userName{
+    flex: 2;
+    align-Items: center;
+    padding-bottom: 20px;
+    
+}
+.inputUserName{
+    border-Radius: 0px;
+    width: 160px!important;
+    margin-left: 10px;
+    font-size: 16px;; 
+}
+
+.password{
+    flex: 1;
+    align-Items: center;
+}
+.inputPassword{
+    border-Radius: 0px ;
+    width: 160px;
+    margin-left: 14px;
+    font-size: 16px;;
+}
+.buttonPassword{
+    display: inline-grid;
+    cursor: pointer;
+    margin-left:-25px;
+    color:rgb(129, 124, 124);
+}
+/* submit and close button */
+.buttons{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+}
+.buttonsSubmit{
+    margin-right: 60px;
+    width: 68px;
+    height: 30px;
+    box-shadow: 1px 0px 11px -2px #7e8f93;
+
+}
+.buttonsClose{
+    margin-left: 70px;
+    width: 68px;
+    box-shadow: 1px 0px 11px -2px #7e8f93;
+}
+.errorMSG{
+    margin-top: 10px;
+    color:red
+}
+
+

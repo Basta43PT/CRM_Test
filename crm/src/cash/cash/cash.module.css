@@ -1,0 +1,95 @@
+.cash{
+    text-align:center;
+    margin-top:2%;
+}
+.case_counting{
+    display: flex;
+    margin-left:25% ;
+    margin-top:5% ;
+    border: 1px solid black;
+    width: 700px;
+    box-shadow: 20px -5px 15px 5px #7e8f93;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    border-top-left-radius: 14px;
+}
+
+
+.buttonE {
+    position: relative;
+    height: 40px;
+    margin-top:20px;
+    margin-right:20px;
+    padding: 1px;
+}
+
+.buttonE::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 62%;
+    border-right: solid 1px black;
+    transform: translateY(-2%) rotate(0);
+}
+
+
+.buttonEn {
+    background-color: transparent;
+    border: 0px solid black;
+    width: 75px;
+    float: left;
+    /* border-radius: 20px; */
+    height: 40px;
+    margin-top: -2px;
+    margin-right: 0px;
+    margin-left: -4px;
+    border: 1px solid black;
+    border-right: 0px;
+    font-weight:bold;
+
+}
+
+.buttonEx {
+    background-color: transparent;
+    border: 0px solid black;
+    padding-left: 7px;
+    float: right;
+    /* border-radius: 23px; */
+    height: 40px;
+    margin-top: -2px;
+    margin-right: 0px;
+    border: 1px solid black;
+    border-left: 0px;
+    font-weight:bold;
+
+
+}
+
+
+.cash_calculate{
+    margin: 5%;
+    margin-top:3%;
+    flex: 1;
+
+}
+.total_counting{
+    margin:20px;
+    margin-top:110px;
+    text-align: center;
+    flex: 2;
+}
+.button{
+    margin-top:10px;
+    background-color: rgb(28, 175, 67);
+    border: rgb(35 160 67);
+    border-style: double;
+    border-radius: 13px;
+    color: white;
+    width: 50%;
+    height: 40px;
+    font-size:23px;
+
+}
+.button:active {
+    background-color: rgb(62, 192, 105);}
