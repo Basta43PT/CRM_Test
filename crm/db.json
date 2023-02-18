@@ -5,7 +5,7 @@
       "name": "Goldstar",
       "img": "https://www.logolynx.com/images/logolynx/s_33/3341b415987d01c756c3e6ec6f55e58b.jpeg",
       "price": 15,
-      "amount": -39,
+      "amount": 0,
       "categoryName": "Beers"
     },
     {
@@ -13,7 +13,7 @@
       "name": "Carlsberg",
       "img": "https://seeklogo.com/images/C/Carlsberg-logo-1738A5D435-seeklogo.com.png",
       "price": 15,
-      "amount": -37,
+      "amount": 0,
       "categoryName": "Beers"
     },
     {
@@ -21,7 +21,7 @@
       "name": "Corona",
       "img": "#",
       "price": 15,
-      "amount": -28,
+      "amount": 0,
       "categoryName": "Beers"
     },
     {
@@ -29,7 +29,7 @@
       "name": "Heineken",
       "img": "#",
       "price": 15,
-      "amount": -4,
+      "amount": 0,
       "categoryName": "Beers"
     },
     {
@@ -37,7 +37,7 @@
       "name": "Arak",
       "img": "#",
       "price": 5,
-      "amount": 20,
+      "amount": 0,
       "categoryName": "Chasers"
     },
     {
@@ -45,7 +45,7 @@
       "name": "Rum",
       "img": "#",
       "price": 5,
-      "amount": 20,
+      "amount": 0,
       "categoryName": "Chasers"
     },
     {
@@ -53,7 +53,7 @@
       "name": "Whiskey",
       "img": "#",
       "price": 5,
-      "amount": 20,
+      "amount": 0,
       "categoryName": "Chasers"
     },
     {
@@ -61,7 +61,7 @@
       "name": "Cola",
       "img": "#",
       "price": 5,
-      "amount": 12,
+      "amount": 0,
       "categoryName": "Soft Drinks"
     },
     {
@@ -69,7 +69,7 @@
       "name": "Ziro",
       "img": "#",
       "price": 5,
-      "amount": 14,
+      "amount": 0,
       "categoryName": "Soft Drinks"
     },
     {
@@ -77,7 +77,7 @@
       "name": "Sprite",
       "img": "#",
       "price": 5,
-      "amount": 14,
+      "amount": 0,
       "categoryName": "Soft Drinks"
     },
     {
@@ -85,7 +85,7 @@
       "name": "Castle",
       "img": "#",
       "price": 20,
-      "amount": 12,
+      "amount": 0,
       "categoryName": "Beers"
     }
   ],
