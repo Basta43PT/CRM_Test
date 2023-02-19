@@ -44,7 +44,7 @@ export function Transactions({ transactions }) {
             </tr>
           </thead>
           <tbody>
-            {revTransactions.map((tran) => (
+            {revTransactions?.map((tran) => (
               <TransactionMainTable tran={tran} />
             ))}
           </tbody>

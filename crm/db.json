@@ -1,92 +1,172 @@
 {
-  "data": [
+  "product": [
     {
       "id": 0,
-      "name": "Goldstar",
+      "name": "גולדסטאר",
       "img": "https://www.logolynx.com/images/logolynx/s_33/3341b415987d01c756c3e6ec6f55e58b.jpeg",
       "price": 15,
-      "amount": -39,
+      "amount": 0,
       "categoryName": "Beers"
     },
     {
       "id": 1,
-      "name": "Carlsberg",
+      "name": "הייניקן",
       "img": "https://seeklogo.com/images/C/Carlsberg-logo-1738A5D435-seeklogo.com.png",
       "price": 15,
-      "amount": -37,
+      "amount": 0,
       "categoryName": "Beers"
     },
     {
       "id": 2,
-      "name": "Corona",
+      "name": "קרלסברג",
       "img": "#",
       "price": 15,
-      "amount": -28,
+      "amount": 0,
       "categoryName": "Beers"
     },
     {
       "id": 3,
-      "name": "Heineken",
+      "name": "סטלה",
       "img": "#",
       "price": 15,
-      "amount": -4,
+      "amount": 0,
       "categoryName": "Beers"
     },
     {
       "id": 4,
-      "name": "Arak",
+      "name": "בנדיקטינר",
       "img": "#",
-      "price": 5,
-      "amount": 20,
-      "categoryName": "Chasers"
+      "price": 15,
+      "amount": 0,
+      "categoryName": "Beers"
     },
     {
       "id": 5,
-      "name": "Rum",
+      "name": "קורונה",
       "img": "#",
-      "price": 5,
-      "amount": 20,
-      "categoryName": "Chasers"
+      "price": 15,
+      "amount": 0,
+      "categoryName": "Beers"
     },
     {
       "id": 6,
-      "name": "Whiskey",
+      "name": "בריזר",
       "img": "#",
-      "price": 5,
-      "amount": 20,
-      "categoryName": "Chasers"
+      "price": 15,
+      "amount": 0,
+      "categoryName": "Beers"
     },
     {
       "id": 7,
-      "name": "Cola",
+      "name": "קסטיל",
       "img": "#",
-      "price": 5,
-      "amount": 12,
-      "categoryName": "Soft Drinks"
+      "price": 20,
+      "amount": 0,
+      "categoryName": "Beers"
     },
     {
       "id": 8,
-      "name": "Ziro",
+      "name": "לימון-עראק",
       "img": "#",
-      "price": 5,
-      "amount": 14,
-      "categoryName": "Soft Drinks"
+      "price": 20,
+      "amount": 0,
+      "categoryName": "Chasers"
     },
     {
       "id": 9,
-      "name": "Sprite",
+      "name": "וודקה-אקסל",
       "img": "#",
-      "price": 5,
-      "amount": 14,
-      "categoryName": "Soft Drinks"
+      "price": 20,
+      "amount": 0,
+      "categoryName": "Chasers"
     },
     {
       "id": 10,
-      "name": "Castle",
+      "name": "וויסקי-קולה",
       "img": "#",
       "price": 20,
-      "amount": 12,
-      "categoryName": "Beers"
+      "amount": 0,
+      "categoryName": "Chasers"
+    },
+    {
+      "id": 11,
+      "name": "וויסקי",
+      "img": "#",
+      "price": 10,
+      "amount": 0,
+      "categoryName": "Chasers"
+    },
+    {
+      "id": 12,
+      "name": "עראק",
+      "img": "#",
+      "price": 5,
+      "amount": 0,
+      "categoryName": "Chasers"
+    },
+    {
+      "id": 13,
+      "name": "Cola",
+      "img": "#",
+      "price": 5,
+      "amount": 0,
+      "categoryName": "Soft Drinks"
+    },
+    {
+      "id": 14,
+      "name": "זירו",
+      "img": "#",
+      "price": 5,
+      "amount": 0,
+      "categoryName": "Soft Drinks"
+    },
+    {
+      "id": 15,
+      "name": "ספרייט",
+      "img": "#",
+      "price": 5,
+      "amount": 0,
+      "categoryName": "Soft Drinks"
+    },
+    {
+      "id": 16,
+      "name": "דיאט ספרייט",
+      "img": "#",
+      "price": 5,
+      "amount": 0,
+      "categoryName": "Soft Drinks"
+    },
+    {
+      "id": 17,
+      "name": "פאנטה",
+      "img": "#",
+      "price": 5,
+      "amount": 0,
+      "categoryName": "Soft Drinks"
+    },
+    {
+      "id": 18,
+      "name": "סודה",
+      "img": "#",
+      "price": 5,
+      "amount": 0,
+      "categoryName": "Soft Drinks"
+    },
+    {
+      "id": 19,
+      "name": "אקסל",
+      "img": "#",
+      "price": 5,
+      "amount": 0,
+      "categoryName": "Soft Drinks"
+    },
+    {
+      "id": 20,
+      "name": "מים",
+      "img": "#",
+      "price": 5,
+      "amount": 0,
+      "categoryName": "Soft Drinks"
     }
   ],
   "users": [
@@ -104,99 +184,6 @@
       "id": 3,
       "userName": "sapir",
       "password": "205473523"
-    }
-  ],
-  "cash": [
-    {
-      "id": 1,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-09T20:06:58.737Z",
-      "totalSum": 687
-    },
-    {
-      "id": 2,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-10T16:17:32.887Z",
-      "totalSum": 200
-    },
-    {
-      "id": 3,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-10T19:48:15.323Z",
-      "totalSum": 1793.5
-    },
-    {
-      "id": 4,
-      "type": "Entrance",
-      "employee": "sapir",
-      "date": "2023-02-13T18:10:36.096Z",
-      "totalSum": 0
-    },
-    {
-      "id": 5,
-      "type": "Entrance",
-      "employee": "yarin",
-      "date": "2023-02-15T19:11:01.874Z",
-      "totalSum": 570
-    }
-  ],
-  "transactions": [
-    {
-      "id": 1,
-      "date": "2023-02-13T18:10:36.096Z",
-      "type": "order",
-      "totalSum": 0,
-      "detail": [
-        {
-          "id": 7,
-          "name": "Cola",
-          "price": 20,
-          "amount": 5
-        },
-        {
-          "id": 2,
-          "name": "Corona",
-          "price": 15,
-          "amount": 3
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "date": "2023-02-15T18:57:41.738Z",
-      "type": "order",
-      "totalSum": 35,
-      "detail": [
-        {
-          "id": 5,
-          "name": "Rum",
-          "price": 5,
-          "count": 7
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "date": "2023-02-15T18:58:35.726Z",
-      "type": "order",
-      "totalSum": 105,
-      "detail": [
-        {
-          "id": 5,
-          "name": "Rum",
-          "price": 5,
-          "count": 6
-        },
-        {
-          "id": 2,
-          "name": "Corona",
-          "price": 15,
-          "count": 5
-        }
-      ]
     }
   ]
 }

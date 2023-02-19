@@ -19,35 +19,80 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [data, fetchData] = useState([]);
-  const [cashList, fetchcashList] = useState([]);
-  const [users, fetchUsers] = useState([]);
-  const [transactions, fetchTransactions] = useState([]);
+  const [inventory, setInventory] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+  const [cash, setCash] = useState([]);
+
+  function getDataLocalStore(dataName) {
+    //intial inventory or get invertory from localStorage
+    const intial = localStorage.getItem(dataName) ? true : false;
+    const getData = localStorage.getItem(dataName)
+      ? localStorage.getItem(dataName)
+      : undefined;
+
+    //in case got data from localStorage
+    if (intial && getData != "undefined") {
+      // Retrieve data from localStorage
+      const parsedData = JSON.parse(localStorage.getItem(dataName));
+
+      return parsedData;
+    }
+
+    //in case first intial data
+    if (!intial) {
+      // Serialize data into JSON string
+      const serializedData = JSON.stringify(getData);
+      // Store serialized data in local storage
+      localStorage.setItem(dataName, serializedData);
+      return undefined;
+    }
+  }
 
   useEffect(() => {
-    fetch("http://localhost:3000/data")
-      .then((res) => res.json())
-      .then((res) => {
-        fetchData(res);
-        console.log(res, "data");
-      });
-    fetch("http://localhost:3000/cash")
-      .then((res) => res.json())
-      .then((res) => {
-        fetchcashList(res);
-        console.log(res, "cash");
-      });
-    fetch("http://localhost:3000/users")
-      .then((res) => res.json())
-      .then((res) => {
-        fetchUsers(res);
-        console.log(res, "users");
-      });
-    fetch("http://localhost:3000/transactions")
-      .then((res) => res.json())
-      .then((res) => {
-        fetchTransactions(res);
-        console.log(res, "transactions");
-      });
+    try {
+      fetch(
+        "https://raw.githubusercontent.com/Basta43PT/CRM_Test/main/crm/db.json"
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          fetchData(res);
+          console.log(res, "app:data");
+
+          //inital inventory
+          setInventory(
+            res.product.map((item) => {
+              return { id: item.id, amount: 0 };
+            })
+          );
+          console.log(inventory, "app:inventory");
+          try {
+            //inital inventory
+            const resInventory = getDataLocalStore("inventory");
+            if (resInventory != undefined) setInventory(resInventory);
+            console.log(resInventory, "app:inventory");
+          } catch (e) {
+            console.error(e, "app:error:inventory");
+          }
+          try {
+            //inital transactions
+            const resTransactions = getDataLocalStore("transactions");
+            if (resTransactions != undefined) setTransactions(resTransactions);
+            console.log(transactions, "app:transactions");
+          } catch (e) {
+            console.error(e, "app:error:transactions");
+          }
+          try {
+            //inital cash
+            const resCash = getDataLocalStore("cash");
+            if (resCash != undefined) setCash(resCash);
+            console.log(cash, "app:cash");
+          } catch (e) {
+            console.error(e, "app:error:cash");
+          }
+        });
+    } catch (e) {
+      console.error(e, "app:error");
+    }
   }, []);
 
   return (
@@ -64,7 +109,13 @@ function App() {
         <Route
           exact
           path="/"
-          element={<Page data={data} transactions={transactions} />}
+          element={
+            <Page
+              data={data.product}
+              inventory={inventory}
+              transactions={transactions}
+            />
+          }
         />
 
         <Route
@@ -76,13 +127,13 @@ function App() {
         <Route
           exact
           path="/cash"
-          element={<Cash cashData={cashList} users={users} />}
+          element={<Cash cashData={cash} users={data.users} />}
         />
 
         <Route
           exact
           path="/cashHistory"
-          element={<CashHistory cashData={cashList} />}
+          element={<CashHistory cashData={cash} />}
         />
 
         <Route path="/AddItem" element={<AddNewItem />} />
