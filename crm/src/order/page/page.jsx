@@ -44,6 +44,7 @@ function manageData(data) {
 }
 
 export function Page({ data, inventory, transactions }) {
+  console.log(data, "page:data");
   const newData = manageData(data);
   const { add, sub, reset, cart } = useCart();
   console.log(cart, "page:cart");

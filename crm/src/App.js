@@ -56,7 +56,7 @@ function App() {
         .then((res) => res.json())
         .then((res) => {
           fetchData(res);
-          console.log(res, "app:data");
+          console.log(res, "app:data:res");
 
           //inital inventory
           setInventory(
