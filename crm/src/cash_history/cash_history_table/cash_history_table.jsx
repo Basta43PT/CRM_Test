@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./cash_history_table.module.css";
 
+//get date object return time and date with custome formate
 function getCurrentDateAndTime(date) {
   //get current date
   const newdate = new Date(date);
@@ -19,58 +20,11 @@ function getCurrentDateAndTime(date) {
   return { formattedDate: formattedDate, currentTime: currentTime };
 }
 
-function sortByDate(a, b) {
-  const dateA = new Date(`${a.date.split("/").reverse().join("-")}T00:00:00`);
-  const dateB = new Date(`${b.date.split("/").reverse().join("-")}T00:00:00`);
+export function CashHistoryTable({ cashData }) {
+  console.log(cashData, "CashHistoryTable:cashData");
 
-  return dateA - dateB;
-}
-
-export function CashHistoryTable(props) {
-  console.log("CashHistoryTable");
-  const [sortOrder, setSortOrder] = useState("asc");
-  const [cashData, setCashData] = useState(props.cashData);
-
-  const revCashData = cashData.sort(sortByDate).reverse();
-
-  const toggleSortOrder = () => {
-    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-    setCashData(
-      sortOrder === "asc"
-        ? cashData.sort(sortByDate).reverse()
-        : cashData.sort(sortByDate)
-    );
-  };
-  var filteredData;
-  const filterWeek = () => {
-    var today = new Date();
-    var oneWeekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
-    filteredData = cashData.filter((data) => {
-      var dataDate = new Date(data.date);
-      return dataDate >= oneWeekAgo && dataDate <= today;
-    });
-    setCashData(filteredData);
-  };
-
-  const filter2Weeks = () => {
-    var today = new Date();
-    var twoWeeksAgo = new Date(today.getTime() - 14 * 24 * 60 * 60 * 1000);
-    filteredData = cashData.filter((data) => {
-      var dataDate = new Date(data.date);
-      return dataDate >= twoWeeksAgo && dataDate <= today;
-    });
-    setCashData(filteredData);
-  };
-
-  const filterMonth = () => {
-    var today = new Date();
-    var MonthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
-    filteredData = cashData.filter((data) => {
-      var dataDate = new Date(data.date);
-      return dataDate >= MonthAgo && dataDate <= today;
-    });
-    setCashData(filteredData);
-  };
+  const revCashData = cashData.reverse();
+  console.log(revCashData, "CashHistoryTable:revCashData");
 
   const dateFrmtCashData = revCashData.map((tran) => {
     const { formattedDate, currentTime } = getCurrentDateAndTime(tran.date);
@@ -80,14 +34,9 @@ export function CashHistoryTable(props) {
       currentTime,
     };
   });
+
   return (
     <>
-      {/* <button onClick={toggleSortOrder}>
-        Toggle sort order ({sortOrder === "asc" ? "ascending" : "descending"})
-      </button>
-      <button onClick={filterWeek}>Last Week</button>
-      <button onClick={filter2Weeks}>Last 2 Weeks</button>
-      <button onClick={filterMonth}>Last Month</button> */}
       <table className={styles.mainTable}>
         <thead>
           <tr>
@@ -96,18 +45,16 @@ export function CashHistoryTable(props) {
             <th>Date</th>
             <th>Hour</th>
             <th>Total Sum</th>
-            {/* <th>Delta</th> */}
           </tr>
         </thead>
         <tbody>
           {dateFrmtCashData.map((data) => (
-            <tr key={data.date + data.hour}>
+            <tr key={data.id}>
               <td>{data.type}</td>
               <td>{data.employee}</td>
               <td>{data.formattedDate}</td>
               <td>{data.currentTime}</td>
               <td>₪{data.totalSum}</td>
-              {/* <td>Delta</td> */}
             </tr>
           ))}
         </tbody>

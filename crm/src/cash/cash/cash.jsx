@@ -95,21 +95,23 @@ export function Cash({ cashData, users }) {
     if (employee != undefined) {
       const date = new Date();
 
-      //build new var to push to jason
+      //build new var to push to json
+      console.log(
+        cashData.length != 0 ? cashData[cashData.length - 1].id++ : 1,
+        "cash:id"
+      );
       const newCounting = {
-        id: cashData.id++,
+        id: cashData.length != 0 ? cashData[cashData.length - 1].id++ : 1,
         type: activeButton,
         employee: employee,
         date: date,
         totalSum: sum,
       };
+      cashData.push(newCounting);
       if (BoolOverwriteCounting) {
         try {
-          fetch(`http://localhost:3000/cash`, {
-            method: "POST",
-            headers: { "Content-type": "application/json" },
-            body: JSON.stringify(newCounting),
-          });
+          const updatedSerializedCash = JSON.stringify(cashData);
+          localStorage.setItem("cash", updatedSerializedCash);
           setInputs(dict);
         } catch (e) {
           console.error(e);
