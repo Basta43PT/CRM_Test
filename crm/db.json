@@ -3,7 +3,7 @@
     {
       "id": 0,
       "name": "גולדסטאר",
-      "img": "https://www.logolynx.com/images/logolynx/s_33/3341b415987d01c756c3e6ec6f55e58b.jpeg",
+      "img": "#",
       "price": 15,
       "amount": 0,
       "categoryName": "Beers"
@@ -11,7 +11,7 @@
     {
       "id": 1,
       "name": "הייניקן",
-      "img": "https://seeklogo.com/images/C/Carlsberg-logo-1738A5D435-seeklogo.com.png",
+      "img": "#",
       "price": 15,
       "amount": 0,
       "categoryName": "Beers"
@@ -39,7 +39,6 @@
       "price": 15,
       "amount": 0,
       "categoryName": "Beers"
-
     },
     {
       "id": 5,
@@ -48,7 +47,6 @@
       "price": 15,
       "amount": 0,
       "categoryName": "Beers"
-
     },
     {
       "id": 6,
@@ -89,9 +87,7 @@
       "price": 20,
       "amount": 0,
       "categoryName": "Chasers"
-    }
-  ],
-  "users": [
+    },
     {
       "id": 11,
       "name": "וויסקי",
@@ -174,6 +170,11 @@
     }
   ],
   "users": [
+    {
+      "id": 0,
+      "userName": "1234",
+      "password": "1234"
+    },
     {
       "id": 1,
       "userName": "yarin",
