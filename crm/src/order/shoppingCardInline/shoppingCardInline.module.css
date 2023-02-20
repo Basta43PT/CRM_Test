@@ -16,6 +16,7 @@
     border: black 1px solid;
     text-align: center;
     display: inline-table;
+    cursor: pointer;
 }
 .sum{
     margin-right: 17px;

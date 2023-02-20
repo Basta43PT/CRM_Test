@@ -3,7 +3,7 @@ import styles from "./shoppingCart.module.css";
 import { ShoppingCardInline } from "../shoppingCardInline";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export function ShoppingCart({ onClick, cart, sub }) {
+export function ShoppingCart({ onClick, cart, sub, add, reset }) {
   const [checked, setChecked] = useState(false);
 
   const sum = cart.reduce(
@@ -17,7 +17,16 @@ export function ShoppingCart({ onClick, cart, sub }) {
   return (
     <div className={styles.ShoppingCart}>
       <h1 className={styles.title}>Shopping Cart</h1>
-
+      {cart.length != 0 && (
+        <h5
+          className={styles.clearAll}
+          onClick={() => {
+            reset();
+          }}
+        >
+          Clear All
+        </h5>
+      )}
       <div className={styles.shoppingCardInline}>
         <ui className>
           {cart.map((cartItem) => (
@@ -27,6 +36,7 @@ export function ShoppingCart({ onClick, cart, sub }) {
               price={cartItem.price}
               count={cartItem.count}
               sub={sub}
+              add={add}
             />
           ))}
         </ui>

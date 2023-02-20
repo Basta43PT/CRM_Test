@@ -77,26 +77,26 @@ export function Page({ data, inventory, transactions }) {
       (sum, item) => (sum = sum + item.price * item.count),
       0
     );
-    const transaction = {
-      id:
-        transactions.length != 0
-          ? transactions[transactions.length - 1].id++
-          : 1,
-      date: new Date(),
-      type: type,
-      totalSum: (type = "order" ? sum : -sum),
-      detail: cart,
-    };
-    transactions.push(transaction);
-    console.log(transactions, "page:transactions");
-    try {
-      const updatedSerializedTransactions = JSON.stringify(transactions);
-      localStorage.setItem("transactions", updatedSerializedTransactions);
-    } catch (e) {
-      console.error(e);
+    if (sum != 0) {
+      const transaction = {
+        id:
+          transactions.length != 0
+            ? transactions[transactions.length - 1].id++
+            : 1,
+        date: new Date(),
+        type: type,
+        totalSum: (type = "order" ? sum : -1 * sum),
+        detail: cart,
+      };
+      transactions.push(transaction);
+      try {
+        const updatedSerializedTransactions = JSON.stringify(transactions);
+        localStorage.setItem("transactions", updatedSerializedTransactions);
+      } catch (e) {
+        console.error(e);
+      }
     }
     reset();
-    console.log(transactions, "page:transactions");
   }
 
   return (
@@ -115,7 +115,13 @@ export function Page({ data, inventory, transactions }) {
         </div>
 
         <div className={styles.ShoppingCart}>
-          <ShoppingCart onClick={sendShoppingCart} cart={cart} sub={sub} />
+          <ShoppingCart
+            onClick={sendShoppingCart}
+            cart={cart}
+            sub={sub}
+            add={add}
+            reset={reset}
+          />
         </div>
       </div>
     </div>
