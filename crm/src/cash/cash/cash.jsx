@@ -96,18 +96,18 @@ export function Cash({ cashData, users }) {
       const date = new Date();
 
       //build new var to push to json
-      console.log(
-        cashData.length != 0 ? cashData[cashData.length - 1].id++ : 1,
-        "cash:id"
-      );
+      const maxId = Math.max(...cashData.map((c) => c.id));
       const newCounting = {
-        id: cashData.length != 0 ? cashData[cashData.length - 1].id++ : 1,
+        id: cashData.length != 0 ? maxId + 1 : 1,
         type: activeButton,
         employee: employee,
         date: date,
         totalSum: sum,
       };
+      console.log(newCounting, "page:newCounting");
       cashData.push(newCounting);
+      console.log(cashData, "page:cashData");
+
       if (BoolOverwriteCounting) {
         try {
           const updatedSerializedCash = JSON.stringify(cashData);
@@ -122,7 +122,7 @@ export function Cash({ cashData, users }) {
   return (
     <div className={styles.cash}>
       {/* show the first line - last count amount */}
-      <h1>Total Cash: ₪{lastCounted} counted by: </h1>
+      <h1>Cash Register Counting</h1>
 
       <div className={styles.case_counting}>
         <div className={styles.cash_calculate}>

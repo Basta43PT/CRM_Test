@@ -1,7 +1,9 @@
 .CashHistoryTitle {
   text-align: center;
+  padding-top:15px ;
+  font-size: 60px;
   
 }
 .cashTable{
-  margin-left: 13%;
+  margin-left: 16%;
 }

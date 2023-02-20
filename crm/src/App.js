@@ -4,7 +4,7 @@ import { Cash } from "./cash/cash";
 import { Menu } from "./menu";
 import React, { useState, useEffect } from "react";
 import { CashHistory } from "./cash_history/cash_history";
-
+import { AutoExcel } from "./auto/auto_excel";
 import { AddNewItem } from "./AddNewItem";
 import styles from "./App.css";
 import {
@@ -95,12 +95,14 @@ function App() {
     }
   }, []);
 
+  <AutoExcel cash={cash} />;
+
   return (
     <Router>
       <div className="NavBar">
         <Menu activeOnlyWhenExact={true} to="/" label="Order" />
         <Menu to="/transactions" label="Transactions" />
-        <Menu to="/cash" label="Cash Box" />
+        <Menu to="/cash" label="Cash" />
         <Menu to="/cashHistory" label="Cash History" />
         <Menu to="/addItem" label="Add Item" />
       </div>

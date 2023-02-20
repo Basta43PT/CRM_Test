@@ -21,11 +21,7 @@ function getCurrentDateAndTime(date) {
 }
 
 export function CashHistoryTable({ cashData }) {
-  console.log(cashData, "CashHistoryTable:cashData");
-
-  const revCashData = cashData.reverse();
-  console.log(revCashData, "CashHistoryTable:revCashData");
-
+  const revCashData = [...cashData].reverse();
   const dateFrmtCashData = revCashData.map((tran) => {
     const { formattedDate, currentTime } = getCurrentDateAndTime(tran.date);
     return {

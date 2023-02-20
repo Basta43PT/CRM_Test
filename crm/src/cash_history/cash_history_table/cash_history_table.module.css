@@ -20,23 +20,23 @@
 
 .mainTable td {
   height: 25px;
-  border: dashed 1px rgb(75, 75, 75);
+  border: dashed 1px rgb(156, 158, 158);
   font-weight: bold;
   min-width: 200px;
 }
+
 .mainTable tr:nth-child(odd) {
   min-width: 100px;
   height: 25px;
   border: dashed 1px lightblue;
-  background-color: rgb(222, 222, 222);
-  border: dashed 1px rgb(75, 75, 75);
+  background-color: rgb(197, 236, 244);
 }
 .mainTable th {
   height: 25px;
-  border: dashed 1px rgb(75, 75, 75);
+  border: dashed 1px rgb(109, 118, 121);
   font-size: larger;
   font-weight: bold;
-  background-color: rgb(70, 184, 184);
+  background-color: rgb(115, 241, 243);
   min-width: 200px;
   padding: 1rem;
 }

@@ -1,5 +1,6 @@
 .page {
-    height: 98vh;
+    /* height: calc(100vh - 32px); */
+    height: calc(100vh - 31px);
     display: flex;
     justify-content: space-between;
     background-color: black;
