@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./shoppingCart.module.css";
 import { ShoppingCardInline } from "../shoppingCardInline";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { TouchRipple } from "@material-ui/core";
 
 export function ShoppingCart({ onClick, cart, sub, add, reset }) {
   const [checked, setChecked] = useState(false);

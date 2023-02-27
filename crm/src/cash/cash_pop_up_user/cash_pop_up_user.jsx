@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./cash_pop_up_user.module.css";
 
 export function Cash_Pop_Up_User({ onClose, users }) {
+  console.log("Cash_Pop_Up_User");
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [userName, setuserName] = useState("");
   const [errorMSG, seterrorMSG] = useState("");
-  console.log("Cash_Pop_Up_User");
+  const popupRef = useRef();
+
+  //close window when click on the backround
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        onClose(undefined);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
+
   // check if user&pass match to user data frame!
   function secureAddCounting() {
     const isMatch = users.find((userData) => {
@@ -31,7 +46,7 @@ export function Cash_Pop_Up_User({ onClose, users }) {
         zIndex: 1,
       }}
     >
-      <div className={styles.popUp}>
+      <div className={styles.popUp} ref={popupRef}>
         <h3>Who do i have the pleasure?</h3>
 
         <div className={styles.inputPopUp}>
