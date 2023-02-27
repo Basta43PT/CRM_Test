@@ -71,21 +71,18 @@ export function Page({ data, inventory, transactions }) {
       const updatedSerializedInventory = JSON.stringify(inventory);
       localStorage.setItem("inventory", updatedSerializedInventory);
     }
-
     //create transaction for db.json:transactions
     const sum = cart.reduce(
       (sum, item) => (sum = sum + item.price * item.count),
       0
     );
     if (sum != 0) {
+      const maxId = Math.max(...transactions.map((c) => c.id));
       const transaction = {
-        id:
-          transactions.length != 0
-            ? transactions[transactions.length - 1].id++
-            : 1,
+        id: transactions.length != 0 ? maxId : 1,
         date: new Date(),
         type: type,
-        totalSum: (type = "order" ? sum : -1 * sum),
+        totalSum: type == "order" ? sum : -1 * sum,
         detail: cart,
       };
       transactions.push(transaction);

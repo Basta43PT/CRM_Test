@@ -1,4 +1,4 @@
-.mainTable {
+/* .mainTable {
   border-collapse: collapse;
   width: 600px;
   text-align: center;
@@ -13,7 +13,6 @@
 
 .mainTable tbody {
   overflow-y: scroll;
-  /*overflow-x: scroll;*/
   height: 16rem;
   display: inline-table;
 }
@@ -39,4 +38,25 @@
   background-color: rgb(115, 241, 243);
   min-width: 200px;
   padding: 1rem;
+} */
+
+.PivotTableUIWarp{
+  margin-top: 100px;
+}
+
+.pvtTable {
+  font-size: 10pt;
+  text-align: center;
+  border-collapse: initial;
+  margin-top: 3px;
+}
+.pvtTable .pvtColLabel{
+  margin-right: 70px;
+}
+
+.pvtUi td.pvtOutput{
+}
+
+table.pvtTable thead tr th, table.pvtTable tbody tr th{
+  padding: 16px;
 }

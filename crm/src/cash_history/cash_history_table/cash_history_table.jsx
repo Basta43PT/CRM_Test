@@ -1,6 +1,9 @@
-/* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 import styles from "./cash_history_table.module.css";
+import PivotTableUI from "react-pivottable/PivotTableUI";
+import "react-pivottable/pivottable.css";
+import TableRenderers from "react-pivottable/TableRenderers";
+import createPlotlyRenderers from "react-pivottable/PlotlyRenderers";
 
 //get date object return time and date with custome formate
 function getCurrentDateAndTime(date) {
@@ -13,8 +16,8 @@ function getCurrentDateAndTime(date) {
   //get currentTime
   const hour = newdate.getHours();
   const minute = newdate.getMinutes();
-  const ziromin = minute < 9 ? 0 : "";
-  const zirohour = hour < 9 ? 0 : "";
+  const ziromin = minute <= 9 ? 0 : "";
+  const zirohour = hour <= 9 ? 0 : "";
 
   const currentTime = `${zirohour}${hour}:${ziromin}${minute}`;
   return { formattedDate: formattedDate, currentTime: currentTime };
@@ -23,38 +26,51 @@ function getCurrentDateAndTime(date) {
 export function CashHistoryTable({ cashData }) {
   const revCashData = [...cashData].reverse();
   const dateFrmtCashData = revCashData.map((tran) => {
+    const newdate = new Date(tran.date);
     const { formattedDate, currentTime } = getCurrentDateAndTime(tran.date);
+    const dayOfWeek = new Date(tran.date).getDay();
+    const nameDayOfWeek =
+      dayOfWeek == 2 || dayOfWeek == 3
+        ? "שלישי"
+        : dayOfWeek == 4 || (dayOfWeek == 5 && newdate.getHours() < 8)
+        ? "חמישי"
+        : dayOfWeek == 5 && newdate.getHours() >= 8
+        ? "שישי"
+        : "אחר";
+
     return {
       ...tran,
       formattedDate,
       currentTime,
+      nameDayOfWeek,
     };
   });
+  const [settings, setSettings] = useState({});
+
+  // create the Plotly renderers
+  const PlotlyRenderers = createPlotlyRenderers(window.Plotly);
 
   return (
     <>
-      <table className={styles.mainTable}>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Employee</th>
-            <th>Date</th>
-            <th>Hour</th>
-            <th>Total Sum</th>
-          </tr>
-        </thead>
-        <tbody>
-          {dateFrmtCashData.map((data) => (
-            <tr key={data.id}>
-              <td>{data.type}</td>
-              <td>{data.employee}</td>
-              <td>{data.formattedDate}</td>
-              <td>{data.currentTime}</td>
-              <td>₪{data.totalSum}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className={styles.PivotTableUIWarp}>
+        <PivotTableUI
+          data={dateFrmtCashData}
+          onChange={(s) => setSettings(s)}
+          cols={["type"]}
+          rows={["nameDayOfWeek", "formattedDate"]}
+          aggregatorName={"Sum"}
+          vals={["totalSum"]}
+          renderers={Object.assign({}, TableRenderers, PlotlyRenderers)}
+          {...settings}
+          hiddenAttributes={[
+            "pvtRenderers",
+            "pvtAxisContainer",
+            "pvtVals",
+            "pvtAxisContainer",
+          ]}
+          hiddenFromAggregators={["id"]}
+        />
+      </div>
     </>
   );
 }

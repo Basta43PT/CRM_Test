@@ -95,26 +95,28 @@ export function Cash({ cashData, users }) {
     if (employee != undefined) {
       const date = new Date();
 
-      //build new var to push to json
-      const maxId = Math.max(...cashData.map((c) => c.id));
-      const newCounting = {
-        id: cashData.length != 0 ? maxId + 1 : 1,
-        type: activeButton,
-        employee: employee,
-        date: date,
-        totalSum: sum,
-      };
-      console.log(newCounting, "page:newCounting");
-      cashData.push(newCounting);
-      console.log(cashData, "page:cashData");
+      if (sum != 0) {
+        //build new var to push to json
+        const maxId = Math.max(...cashData.map((c) => c.id));
+        const newCounting = {
+          id: cashData.length != 0 ? maxId + 1 : 1,
+          type: activeButton,
+          employee: employee,
+          date: date,
+          totalSum: sum,
+        };
 
-      if (BoolOverwriteCounting) {
-        try {
-          const updatedSerializedCash = JSON.stringify(cashData);
-          localStorage.setItem("cash", updatedSerializedCash);
-          setInputs(dict);
-        } catch (e) {
-          console.error(e);
+        cashData.push(newCounting);
+        console.log(cashData, "page:cashData");
+
+        if (BoolOverwriteCounting) {
+          try {
+            const updatedSerializedCash = JSON.stringify(cashData);
+            localStorage.setItem("cash", updatedSerializedCash);
+            setInputs(dict);
+          } catch (e) {
+            console.error(e);
+          }
         }
       }
     }
@@ -150,12 +152,10 @@ export function Cash({ cashData, users }) {
             className={styles.buttonEn}
             style={{
               backgroundColor:
-                activeButton === "Entrance"
-                  ? "rgb(62, 192, 105)"
-                  : "transparent",
+                activeButton === "כניסה" ? "rgb(62, 192, 105)" : "transparent",
             }}
             onClick={() => {
-              setActiveButton("Entrance");
+              setActiveButton("כניסה");
               setIsClicked(true);
             }}
           >
@@ -166,10 +166,10 @@ export function Cash({ cashData, users }) {
             className={styles.buttonEx}
             style={{
               backgroundColor:
-                activeButton === "Exit" ? "rgb(62, 192, 105)" : "transparent",
+                activeButton === "יציאה" ? "rgb(300, 30, 30)" : "transparent",
             }}
             onClick={() => {
-              setActiveButton("Exit");
+              setActiveButton("יציאה");
               setIsClicked(true);
             }}
           >

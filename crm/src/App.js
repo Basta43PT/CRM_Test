@@ -4,7 +4,6 @@ import { Cash } from "./cash/cash";
 import { Menu } from "./menu";
 import React, { useState, useEffect } from "react";
 import { CashHistory } from "./cash_history/cash_history";
-import { AutoExcel } from "./auto/auto_excel";
 import { AddNewItem } from "./AddNewItem";
 import styles from "./App.css";
 import {
@@ -22,6 +21,8 @@ function App() {
   const [inventory, setInventory] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [cash, setCash] = useState([]);
+  const [product, setProduct] = useState([]);
+  const [categoryName, setCategoryName] = useState([]);
 
   function getDataLocalStore(dataName) {
     //intial inventory or get invertory from localStorage
@@ -34,7 +35,6 @@ function App() {
     if (intial && getData != "undefined") {
       // Retrieve data from localStorage
       const parsedData = JSON.parse(localStorage.getItem(dataName));
-
       return parsedData;
     }
 
@@ -64,7 +64,6 @@ function App() {
               return { id: item.id, amount: 0 };
             })
           );
-          console.log(inventory, "app:inventory");
           try {
             //inital inventory
             const resInventory = getDataLocalStore("inventory");
@@ -73,6 +72,7 @@ function App() {
           } catch (e) {
             console.error(e, "app:error:inventory");
           }
+
           try {
             //inital transactions
             const resTransactions = getDataLocalStore("transactions");
@@ -81,21 +81,52 @@ function App() {
           } catch (e) {
             console.error(e, "app:error:transactions");
           }
+
           try {
             //inital cash
             const resCash = getDataLocalStore("cash");
-            if (resCash != undefined) setCash(resCash);
-            console.log(cash, "app:cash");
+            if (resCash != undefined) {
+              setCash(resCash);
+            }
           } catch (e) {
             console.error(e, "app:error:cash");
+          }
+
+          try {
+            //inital product
+            const resProduct = getDataLocalStore("product");
+            if (resProduct == undefined) {
+              setProduct(res.product);
+              const updatedSerializedProduct = JSON.stringify(res.product);
+              localStorage.setItem("product", updatedSerializedProduct);
+            } else setProduct(resProduct);
+          } catch (e) {
+            console.error(e, "app:error:product");
+          }
+
+          try {
+            //inital categoryName
+            const resCategoryName = getDataLocalStore("categoryName");
+            if (resCategoryName == undefined) {
+              const tempListCategoryName = [
+                ...new Set(res.product.map((item) => item.categoryName)),
+              ];
+              setCategoryName(tempListCategoryName);
+              const updatedSerializedCategoryName =
+                JSON.stringify(tempListCategoryName);
+              localStorage.setItem(
+                "categoryName",
+                updatedSerializedCategoryName
+              );
+            }
+          } catch (e) {
+            console.error(e, "app:error:categoryName");
           }
         });
     } catch (e) {
       console.error(e, "app:error");
     }
   }, []);
-
-  <AutoExcel cash={cash} />;
 
   return (
     <Router>
@@ -113,7 +144,7 @@ function App() {
           path="/"
           element={
             <Page
-              data={data.product}
+              data={product}
               inventory={inventory}
               transactions={transactions}
             />
@@ -138,7 +169,16 @@ function App() {
           element={<CashHistory cashData={cash} />}
         />
 
-        <Route path="/AddItem" element={<AddNewItem />} />
+        <Route
+          path="/AddItem"
+          element={
+            <AddNewItem
+              product={product}
+              categoryName={categoryName}
+              users={data.users}
+            />
+          }
+        />
       </Routes>
     </Router>
   );
